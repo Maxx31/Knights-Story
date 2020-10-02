@@ -7,8 +7,6 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Main_Hero : MonoBehaviour
 {
 
-    public Button Left;
-    public Button Right;
     private float dirX;
     Rigidbody2D rb;
     public float Move_Speed;
