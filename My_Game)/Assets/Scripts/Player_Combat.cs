@@ -51,13 +51,19 @@ public class Player_Combat : MonoBehaviour
     {
         
         anim.SetTrigger("Attack");
+        //Задержка
 
        Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(attack_Point.position, attack_range, enemy_Layer);
 
           foreach (Collider2D enemy in Hit_Enemies)
         {
+            enemy.GetComponent<Enemy>().Take_Damage(Damage);
+            
             if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[0] == true)
             {
+
+               
+
                 if (Skills_Manager.use.Passive_skills_Warrior[2] == 1)
                 {
                     if (Random.Range(1, 16) < 3)
@@ -95,4 +101,5 @@ public class Player_Combat : MonoBehaviour
         Gizmos.DrawWireSphere(attack_Point.position, attack_range);
     }
 
+ 
 }

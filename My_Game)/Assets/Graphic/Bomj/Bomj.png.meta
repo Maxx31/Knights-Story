@@ -1,0 +1,680 @@
+fileFormatVersion: 2
+guid: 617fab57493ba744496bb45e6c4c9dca
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1326532627772698361
+    second: Bomj_0
+  - first:
+      213: -4363858417463064116
+    second: Bomj_Run_1
+  - first:
+      213: 6498204154079895080
+    second: Bomj_Run_6
+  - first:
+      213: -8179896342071604350
+    second: Bomj_Run_2
+  - first:
+      213: 1556109507581080195
+    second: Bomj_Run_7
+  - first:
+      213: 7194544758597604011
+    second: Bomj_Run_3
+  - first:
+      213: -6335432153148852619
+    second: Bomj_Run_8
+  - first:
+      213: 8567753248636840092
+    second: Bomj_Run_4
+  - first:
+      213: -1020699708953215071
+    second: Bomj_Run_9
+  - first:
+      213: -6033761023175525146
+    second: Bomj_Run_5
+  - first:
+      213: 1658534100895419351
+    second: Bomj_Run_10
+  - first:
+      213: 7904110822494640524
+    second: Bomj_Jump_1
+  - first:
+      213: -2349439399949262296
+    second: Bomj_Jump_2
+  - first:
+      213: 5202134317024700096
+    second: Bomj_Jump_3
+  - first:
+      213: -9168550385269190086
+    second: Bomj_Jump_4
+  - first:
+      213: 2162764685110543618
+    second: Bomj_Attack_1
+  - first:
+      213: 8299073353698440199
+    second: Bomj_Attack_2
+  - first:
+      213: 8369543098686279076
+    second: Bomj_Attack_3
+  - first:
+      213: -8541987498017946130
+    second: Bomj_Attack_4
+  - first:
+      213: -6677045808058768474
+    second: Bomj_Attack_5
+  - first:
+      213: 3173292050071029014
+    second: Bomj_Die_1
+  - first:
+      213: -8463527507330694571
+    second: Bomj_Die_2
+  - first:
+      213: -5426437021810804221
+    second: Bomj_Die_3
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bomj_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7037
+        width: 1833
+        height: 1437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 13, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70194a27a95379de0800000000000000
+      internalID: -1326532627772698361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_1
+      rect:
+        serializedVersion: 2
+        x: 2355
+        y: 6555
+        width: 1811
+        height: 1407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc90409d3e57073c0800000000000000
+      internalID: -4363858417463064116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_6
+      rect:
+        serializedVersion: 2
+        x: 2548
+        y: 4838
+        width: 2033
+        height: 1408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82e56e9cf324e2a50800000000000000
+      internalID: 6498204154079895080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_2
+      rect:
+        serializedVersion: 2
+        x: 4250
+        y: 6408
+        width: 1783
+        height: 1462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b0e47ad9b2b7e80800000000000000
+      internalID: -8179896342071604350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_7
+      rect:
+        serializedVersion: 2
+        x: 4702
+        y: 4887
+        width: 1901
+        height: 1425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3827afe3a59689510800000000000000
+      internalID: 1556109507581080195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_3
+      rect:
+        serializedVersion: 2
+        x: 6091
+        y: 6571
+        width: 1901
+        height: 1425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2dbd0f65828d360800000000000000
+      internalID: 7194544758597604011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_8
+      rect:
+        serializedVersion: 2
+        x: 6663
+        y: 4899
+        width: 1835
+        height: 1437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57679f4f5060418a0800000000000000
+      internalID: -6335432153148852619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_4
+      rect:
+        serializedVersion: 2
+        x: 8053
+        y: 6620
+        width: 1901
+        height: 1430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c98a23c8f26c6e670800000000000000
+      internalID: 8567753248636840092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_9
+      rect:
+        serializedVersion: 2
+        x: 8504
+        y: 5073
+        width: 1901
+        height: 1395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1afbf79c50fb5d1f0800000000000000
+      internalID: -1020699708953215071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_5
+      rect:
+        serializedVersion: 2
+        x: 10062
+        y: 6679
+        width: 2259
+        height: 1413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec76025156c34ca0800000000000000
+      internalID: -6033761023175525146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Run_10
+      rect:
+        serializedVersion: 2
+        x: 10432
+        y: 5031
+        width: 1889
+        height: 1395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db4ebb3afb440710800000000000000
+      internalID: 1658534100895419351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Jump_1
+      rect:
+        serializedVersion: 2
+        x: 2662
+        y: 3281
+        width: 1835
+        height: 1413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c891d105aea01bd60800000000000000
+      internalID: 7904110822494640524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Jump_2
+      rect:
+        serializedVersion: 2
+        x: 4660
+        y: 3352
+        width: 1913
+        height: 1323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 822a7b8405d156fd0800000000000000
+      internalID: -2349439399949262296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Jump_3
+      rect:
+        serializedVersion: 2
+        x: 6719
+        y: 3391
+        width: 1929
+        height: 1285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c660286991b13840800000000000000
+      internalID: 5202134317024700096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Jump_4
+      rect:
+        serializedVersion: 2
+        x: 8769
+        y: 3492
+        width: 1949
+        height: 1244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3252cc6004c2c080800000000000000
+      internalID: -9168550385269190086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 2789
+        y: 1645
+        width: 1756
+        height: 1389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20506c4b50fa30e10800000000000000
+      internalID: 2162764685110543618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 4918
+        y: 1615
+        width: 1281
+        height: 1599
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704fa1cae3b3c2370800000000000000
+      internalID: 8299073353698440199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 6374
+        y: 1561
+        width: 1251
+        height: 1660
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad8481ca17962470800000000000000
+      internalID: 8369543098686279076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 7728
+        y: 1495
+        width: 1648
+        height: 1670
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee500d0c0a3c47980800000000000000
+      internalID: -8541987498017946130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 9528
+        y: 1761
+        width: 2164
+        height: 1393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a365adc63e5653a0800000000000000
+      internalID: -6677045808058768474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Die_1
+      rect:
+        serializedVersion: 2
+        x: 2809
+        y: 0
+        width: 2019
+        height: 1447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6150e058e4cc90c20800000000000000
+      internalID: 3173292050071029014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Die_2
+      rect:
+        serializedVersion: 2
+        x: 5051
+        y: 0
+        width: 1774
+        height: 1380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5528ec2e2928b8a80800000000000000
+      internalID: -8463527507330694571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomj_Die_3
+      rect:
+        serializedVersion: 2
+        x: 7042
+        y: 75
+        width: 1684
+        height: 1233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a30f6774c61b4b0800000000000000
+      internalID: -5426437021810804221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
