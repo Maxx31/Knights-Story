@@ -8,14 +8,13 @@ public class Melee_Enemy_Combat : MonoBehaviour
     public Transform attack_Point;
     public float attack_range;
     public float Attack_rate ;
-    private float Damage = 25f;
-    float Next_Attact_Time = 0f;
+    public float Damage = 25f;
+    float Next_Attact_Time = 2f;
     bool In_range = false;
+   public Animator anim;
     public LayerMask M_Hero;
     private void Update()
     {
-    
-
         if (Time.time >= Next_Attact_Time && In_range == true)
         {
                 Attack();
@@ -35,14 +34,17 @@ public class Melee_Enemy_Combat : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        In_range = false;
+        if (collision.gameObject.tag == "Player")
+        {
+            In_range = false;
+        }
     }
 
 
     void Attack()
     {
 
-        // anim.SetTrigger("Attack");
+         anim.SetTrigger("Attack");
         //Задержка
       
         Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(attack_Point.position, attack_range, M_Hero);

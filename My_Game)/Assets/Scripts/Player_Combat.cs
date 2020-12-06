@@ -6,11 +6,6 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player_Combat : MonoBehaviour
 {
 
-    
-
-   
-
-
     public Animator anim;
 
     public Transform attack_Point;
@@ -18,7 +13,7 @@ public class Player_Combat : MonoBehaviour
     public float Attack_rate = 2f;
     public LayerMask enemy_Layer;
     private float Damage = 25f;
-    float Next_Attact_Time = 0f;
+    float Next_Attact_Time = 3f;
     
    
     private void Start()
@@ -57,8 +52,8 @@ public class Player_Combat : MonoBehaviour
 
           foreach (Collider2D enemy in Hit_Enemies)
         {
+   
             enemy.GetComponent<Enemy>().Take_Damage(Damage);
-            
             if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[0] == true)
             {
 
@@ -89,6 +84,7 @@ public class Player_Combat : MonoBehaviour
 
                 }
             }
+            Debug.Log("Dt5");
         }
     }
 

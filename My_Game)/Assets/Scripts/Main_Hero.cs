@@ -15,6 +15,7 @@ public class Main_Hero : MonoBehaviour
     private Animator anim;
     public float HP;
     private float Armor_Rate;
+    private bool Double_Jump = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,19 +25,26 @@ public class Main_Hero : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Move_Speed = 15f;
         HP = 100;
-        float Armor_Boost = 3f;
+        float Armor_Boost = 2f;
         if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[6] == true)
         {
             for (int i = 1; i < Skills_Manager.use.Passive_skills_Warrior[6]; i++)
             {
-                Armor_Boost = ((Armor_Boost) * 2) + 1;
+                Armor_Boost = ((Armor_Boost) * 2f) + 2f;
 
             }
             Armor_Rate += Armor_Boost;
         }
-        if (Skills_Manager.use.Passive_skills_Warrior[1] > 0)
+        if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true)
         {
-            if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[0] == true)
+            for (int i = 1; i < Skills_Manager.use.Passive_skills_Warrior[8]; i++)
+            {
+                Armor_Boost = ((Armor_Boost) * 1.8f) + 1.7f;
+
+            }
+            Armor_Rate += Armor_Boost;
+        }
+        if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[1] == true  )
             {
                 switch (Skills_Manager.use.Passive_skills_Warrior[1])
                 {
@@ -51,8 +59,21 @@ public class Main_Hero : MonoBehaviour
                         break;
                 }
             }
+        if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true)
+        {
+            switch (Skills_Manager.use.Passive_skills_Warrior[8])
+            {
+                case 1:
+                    Move_Speed += 1.5f;
+                    break;
+                case 2:
+                    Move_Speed += 3f;
+                    break;
+                case 3:
+                    Move_Speed += 5.5f;
+                    break;
+            }
         }
-
     }
 
 
@@ -61,11 +82,24 @@ public class Main_Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         dirX = CrossPlatformInputManager.GetAxis("Horizontal") * Move_Speed;
 
+        if (rb.velocity.y == 0)
+        {
+            Double_Jump = true;
+
+        }
+        if (CrossPlatformInputManager.GetButtonDown("Jump") &&  ((Skills_Manager.use.Passive_skills_Warrior[7] > 0 && Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true) || (Skills_Manager.use.Passive_skills_Warrior[8] > 0 && Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true)) && rb.velocity.y != 0 && Double_Jump == true)
+        {
+            Double_Jump = false;
+            rb.AddForce(Vector2.up * 560f);
+        }
         if (CrossPlatformInputManager.GetButtonDown("Jump") && rb.velocity.y == 0)
+        {
+            
             rb.AddForce(Vector2.up * 700f);
+
+        }
 
         if(Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
         {
@@ -76,6 +110,7 @@ public class Main_Hero : MonoBehaviour
             anim.SetBool("Is_Running", false);
         }
 
+       
         if(rb.velocity.y == 0)
         {
 
@@ -119,6 +154,7 @@ public class Main_Hero : MonoBehaviour
 
     public void Take_Damage(float damage)
     {
+       // Debug.Log("Current health:" + HP);
         bool Dodged = false;
         int Chance = 9;
 
