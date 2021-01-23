@@ -1,0 +1,392 @@
+fileFormatVersion: 2
+guid: 7eaa69670663a7e43893c45dc0e80c05
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2891763136389093612
+    second: Ork_Parts_Gun
+  - first:
+      213: -4965296601459504219
+    second: Ork_Parts_Head
+  - first:
+      213: -241350411393291141
+    second: Ork_Parts_R_Hand_1
+  - first:
+      213: 8718892227614611562
+    second: Ork_Parts_Body
+  - first:
+      213: -6287213644925766825
+    second: Ork_Parts_L_Hand_1
+  - first:
+      213: 7575534276382463559
+    second: Ork_Parts_R_Hand_2
+  - first:
+      213: -4678299610625463386
+    second: Ork_Parts_L_Hand_2
+  - first:
+      213: 4466401371442238017
+    second: Ork_Parts_R_Leg_1
+  - first:
+      213: 2738604969376795210
+    second: Ork_Parts_L_Leg_1
+  - first:
+      213: -560759902087936198
+    second: Ork_Parts_R_Leg_2
+  - first:
+      213: 6522961972182662632
+    second: Ork_Parts_L_Leg_2
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ork_Parts_Gun
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 502
+        height: 500
+      alignment: 9
+      pivot: {x: 0.89962214, y: 0.102996096}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41765f8afb46ed7d0800000000000000
+      internalID: -2891763136389093612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_Head
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 892
+        width: 1026
+        height: 624
+      alignment: 9
+      pivot: {x: 0.36350867, y: 0.04463108}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab4d895c09b71bb0800000000000000
+      internalID: -4965296601459504219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_R_Hand_1
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 618
+        width: 128
+        height: 183
+      alignment: 9
+      pivot: {x: 0.72843933, y: 0.8768651}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c228e541d86acf0800000000000000
+      internalID: -241350411393291141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_Body
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 417
+        width: 329
+        height: 398
+      alignment: 9
+      pivot: {x: 0.5192237, y: 0.5000003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6812ed494abff870800000000000000
+      internalID: 8718892227614611562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_L_Hand_1
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 688
+        width: 137
+        height: 177
+      alignment: 9
+      pivot: {x: 0.17938723, y: 0.87762624}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753f53340845fb8a0800000000000000
+      internalID: -6287213644925766825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_R_Hand_2
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 257
+        width: 223
+        height: 206
+      alignment: 9
+      pivot: {x: 0.8842385, y: 0.8855127}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74692979944b12960800000000000000
+      internalID: 7575534276382463559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_L_Hand_2
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 367
+        width: 182
+        height: 253
+      alignment: 9
+      pivot: {x: 0.48841742, y: 0.9213537}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab22d37a47531fb0800000000000000
+      internalID: -4678299610625463386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_R_Leg_1
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 190
+        width: 105
+        height: 163
+      alignment: 9
+      pivot: {x: 0.5796154, y: 0.9487479}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142d1212268dbfd30800000000000000
+      internalID: 4466401371442238017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_L_Leg_1
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 177
+        width: 105
+        height: 163
+      alignment: 9
+      pivot: {x: 0.4203869, y: 0.9359264}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ac2dbb5ba710620800000000000000
+      internalID: 2738604969376795210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_R_Leg_2
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 0
+        width: 147
+        height: 138
+      alignment: 9
+      pivot: {x: 0.72747016, y: 0.86345786}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3704cf07d7c738f0800000000000000
+      internalID: -560759902087936198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork_Parts_L_Leg_2
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 4
+        width: 139
+        height: 130
+      alignment: 9
+      pivot: {x: 0.5451063, y: 0.90190053}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed34538a57368a50800000000000000
+      internalID: 6522961972182662632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

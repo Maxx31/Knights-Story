@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
     float current_Healh;
      public Animator anim;
     private bool Facing_Right;
+    public bool Dead = false;
     Rigidbody2D rb;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,19 +23,14 @@ public class Enemy : MonoBehaviour
     {
         if (rb.velocity.y == 0)
         {
-
             anim.SetBool("Is_Jumping", false);
-            anim.SetBool("Is_Falling", false);
+
         }
-        else if (rb.velocity.y > 0)
+        else 
         {
             anim.SetBool("Is_Jumping", true);
         }
-        else
-        {
-            anim.SetBool("Is_Jumping", false);
-            anim.SetBool("Is_Falling", true);
-        }
+    
     }
 
     public void Take_Damage(float damage)
@@ -56,17 +53,29 @@ public class Enemy : MonoBehaviour
         
         if(current_Healh <= 0)
         {
-            Die();
+            anim.SetTrigger("Death");
+            Dead = true;
+
+            transform.GetComponent<Patrol>().enabled = false;
+            Debug.Log("Enemy is dead");
+
+            Invoke("Die", 1.5f);
         }
     }
 
-    
-        void Die()
+ 
+
+
+    void Die()
     {
-        anim.SetTrigger("Death");
         Debug.Log("Enemy is dead");
+        Destroy(gameObject);
     }
     
+   public void Jump()
+    {
 
+        rb.AddForce(Vector2.up * 600f);
+    }
 
 }

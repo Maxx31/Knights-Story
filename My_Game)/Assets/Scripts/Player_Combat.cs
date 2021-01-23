@@ -13,7 +13,7 @@ public class Player_Combat : MonoBehaviour
     public float Attack_rate = 2f;
     public LayerMask enemy_Layer;
     private float Damage = 25f;
-    float Next_Attact_Time = 3f;
+    float Next_Attact_Time = 0f;
     
    
     private void Start()
@@ -34,6 +34,7 @@ public class Player_Combat : MonoBehaviour
     {
         if (Time.time >= Next_Attact_Time)
         {
+        //    Debug.Log("Chi");
             if (CrossPlatformInputManager.GetButtonDown("attack"))
             {
                 Attack();

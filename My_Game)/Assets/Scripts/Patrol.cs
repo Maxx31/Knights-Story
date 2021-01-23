@@ -8,13 +8,13 @@ public class Patrol : MonoBehaviour
     public float speed;
 
     public int position_Of_Patrol;
-
+    public bool is_Bomj = false;
     public Transform point;
     private Vector3 Local_Scale;
     public bool Moving_Right;
     Rigidbody2D rb;
     Transform player;
-    public Transform BomjGFX;
+    public Transform GFX;
     public float Stopping_Distanse;
     bool chill = false;
     bool angry = false;
@@ -31,8 +31,8 @@ public class Patrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if(Vector2.Distance(transform.position, point.position) < position_Of_Patrol && angry ==false)
+            
+        if (Vector2.Distance(transform.position, point.position) < position_Of_Patrol && angry == false)
         {
             chill = true;
         }
@@ -113,13 +113,30 @@ public class Patrol : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (Moving_Right == false)
         {
-            BomjGFX.localScale = new Vector3(0.167544f, 0.167544f, 1f);
+            if (is_Bomj == true)
+            {
+                GFX.localScale = new Vector3(0.167544f, 0.167544f, 1f);
+            }
+            else
+            {
+                GFX.localScale = new Vector3(1f,1f, 1f);
+            }
         }
         else if (Moving_Right == true)
         {
-            BomjGFX.localScale = new Vector3(-0.167544f, 0.167544f, 1f);
+            if (is_Bomj == true)
+            {
+               GFX.localScale = new Vector3(-0.167544f, 0.167544f, 1f);
+            }
+            else
+            {
+               GFX.localScale = new Vector3( -1f, 1f, 1f);
+            }
         }
+
+
     }
 }
