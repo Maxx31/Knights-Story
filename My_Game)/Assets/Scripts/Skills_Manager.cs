@@ -14,6 +14,7 @@ public class Skills_Manager : MonoBehaviour
     public int[] Active_Button_Warrior = new int[3];
 
     public int[] Active_skills_Warrior = new int[10];
+    //Первое умение - Фаербол
 
 
     public static Skills_Manager use

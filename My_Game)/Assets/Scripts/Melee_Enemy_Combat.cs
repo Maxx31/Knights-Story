@@ -10,6 +10,7 @@ public class Melee_Enemy_Combat : MonoBehaviour
     public float Attack_rate ;
     public float Damage = 25f;
     float Next_Attact_Time = 0f;
+ 
     bool In_range = false;
    public Animator anim;
     public LayerMask M_Hero;

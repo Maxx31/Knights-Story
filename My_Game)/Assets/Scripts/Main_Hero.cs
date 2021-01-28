@@ -10,19 +10,26 @@ public class Main_Hero : MonoBehaviour
     private float dirX;
     Rigidbody2D rb;
     public float Move_Speed;
-    private bool Facing_Right;
+    public bool Facing_Right;
     private Vector3 Local_Scale;
     private Animator anim;
     public float HP;
     private float Armor_Rate;
     private bool Double_Jump = true;
-    // Start is called before the first frame update
+
+
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+
     void Start()
     {
         Armor_Rate = 55;
         Local_Scale = transform.localScale;
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
         Move_Speed = 15f;
         HP = 100;
         float Armor_Boost = 2f;
@@ -130,6 +137,7 @@ public class Main_Hero : MonoBehaviour
 
     }
 
+
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(dirX, rb.velocity.y);
@@ -150,7 +158,7 @@ public class Main_Hero : MonoBehaviour
             Local_Scale.x *= -1;
         }
         transform.localScale = Local_Scale;
-    }
+    } 
 
     public void Take_Damage(float damage)
     {
@@ -175,11 +183,11 @@ public class Main_Hero : MonoBehaviour
         {
             damage -= (Armor_Rate * damage) / 100; //Влияние Армора на получаемый урон
             HP -= damage;
-            Debug.Log("Current health:" + HP);
+            //Debug.Log("Current health:" + HP);
         }
         else
         {
-            Debug.Log("Dodged");
+           // Debug.Log("Dodged");
         }
         
     }

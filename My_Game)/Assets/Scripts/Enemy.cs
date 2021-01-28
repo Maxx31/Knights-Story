@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     public void Take_Damage(float damage)
     {
-     
+    
         int armor_Reduce = 3;
        if( Skills_Manager.use.Is_Enable_Passive_skills_Warrior[5] == true)
         {
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         damage -= ( (Armor - armor_Reduce) * damage) / 100; //Влияние Армора на получаемый урон
  
         current_Healh -= damage;
-       // Debug.Log("Current health:" + current_Healh);
+        Debug.Log("Current health:" + current_Healh);
         
         if(current_Healh <= 0)
         {
