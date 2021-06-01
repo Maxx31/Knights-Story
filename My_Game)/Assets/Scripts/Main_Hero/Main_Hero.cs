@@ -83,9 +83,6 @@ public class Main_Hero : MonoBehaviour
         }
     }
 
-
-
-
     // Update is called once per frame
     void Update()
     {
@@ -117,7 +114,7 @@ public class Main_Hero : MonoBehaviour
             anim.SetBool("Is_Running", false);
         }
 
-       
+        Debug.Log( anim.GetBool("Is_Falling"));
         if(rb.velocity.y == 0)
         {
 
@@ -190,5 +187,21 @@ public class Main_Hero : MonoBehaviour
            // Debug.Log("Dodged");
         }
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            this.transform.parent = collision.gameObject.transform;
+        }   
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            this.transform.parent = null;
+        }
     }
 }

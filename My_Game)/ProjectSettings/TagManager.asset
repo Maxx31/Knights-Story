@@ -7,6 +7,7 @@ TagManager:
   - Block
   - Enemy
   - Useless
+  - Platform
   layers:
   - Default
   - TransparentFX
