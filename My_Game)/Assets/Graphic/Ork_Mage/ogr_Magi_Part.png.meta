@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 97fab960ca6c9fc47a6b982904992bba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3229762202978133863
+    second: ogr_Magi_Part_0
+  - first:
+      213: -5056893479434469029
+    second: ogr_Magi_Part_1
+  - first:
+      213: 8000038578522966819
+    second: ogr_Magi_Part_2
+  - first:
+      213: -2721862509034696194
+    second: ogr_Magi_Part_3
+  - first:
+      213: -5596303586024612492
+    second: ogr_Magi_Part_4
+  - first:
+      213: -7175846067248131985
+    second: ogr_Magi_Part_5
+  - first:
+      213: 6320139205978290023
+    second: ogr_Magi_Part_6
+  - first:
+      213: -3184021731024438806
+    second: ogr_Magi_Part_7
+  - first:
+      213: 4794621270451322121
+    second: ogr_Magi_Part_8
+  - first:
+      213: -6805101421234339500
+    second: ogr_Magi_Part_9
+  - first:
+      213: -7570797711144775054
+    second: ogr_Magi_Part_10
+  - first:
+      213: 2111402091531794228
+    second: ogr_Magi_Part_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ogr_Magi_Part_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 364
+        width: 203
+        height: 774
+      alignment: 9
+      pivot: {x: 0.5646154, y: 0.025486633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767ae719c9b62dc20800000000000000
+      internalID: 3229762202978133863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_1
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1026
+        width: 828
+        height: 877
+      alignment: 9
+      pivot: {x: 0.32257324, y: 0.04232917}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51c15b4c2e42d9b0800000000000000
+      internalID: -5056893479434469029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_2
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 761
+        width: 127
+        height: 183
+      alignment: 9
+      pivot: {x: 0.7478787, y: 0.8440498}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b484e73b8d50f60800000000000000
+      internalID: 8000038578522966819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_3
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 402
+        width: 443
+        height: 588
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1988518700a3ad0800000000000000
+      internalID: -2721862509034696194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_4
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 835
+        width: 138
+        height: 177
+      alignment: 9
+      pivot: {x: 0.2338593, y: 0.84089065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d12cbf98fe552b0800000000000000
+      internalID: -5596303586024612492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_5
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 473
+        width: 176
+        height: 169
+      alignment: 9
+      pivot: {x: 0.85773396, y: 0.8259819}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f609ac665064a6c90800000000000000
+      internalID: -7175846067248131985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_6
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 402
+        width: 182
+        height: 254
+      alignment: 9
+      pivot: {x: 0.5, y: 0.88214594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767fa5f4f15a5b750800000000000000
+      internalID: 6320139205978290023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_7
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 242
+        width: 151
+        height: 163
+      alignment: 9
+      pivot: {x: 0.7779737, y: 0.75750977}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9f925fa1510d3d0800000000000000
+      internalID: -3184021731024438806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_8
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 214
+        width: 105
+        height: 163
+      alignment: 9
+      pivot: {x: 0.5999384, y: 0.90235853}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d78c974aae98240800000000000000
+      internalID: 4794621270451322121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_9
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 205
+        width: 105
+        height: 163
+      alignment: 9
+      pivot: {x: 0.32510695, y: 0.9023591}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45142d6ff4c6f81a0800000000000000
+      internalID: -6805101421234339500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_10
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 8
+        width: 147
+        height: 138
+      alignment: 9
+      pivot: {x: 0.73199964, y: 0.88019973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27210e0f79f1fe690800000000000000
+      internalID: -7570797711144775054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogr_Magi_Part_11
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 0
+        width: 142
+        height: 129
+      alignment: 9
+      pivot: {x: 0.5738981, y: 0.84571666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437f4cbf3053d4d10800000000000000
+      internalID: 2111402091531794228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

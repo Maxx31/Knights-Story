@@ -18,18 +18,10 @@ public class Enemy : MonoBehaviour
         current_Healh = max_Health;
 
     }
-
+    
     private void Update()
     {
-        if (rb.velocity.y == 0)
-        {
-            anim.SetBool("Is_Jumping", false);
-
-        }
-        else 
-        {
-            anim.SetBool("Is_Jumping", true);
-        }
+     
     
     }
 
@@ -49,7 +41,7 @@ public class Enemy : MonoBehaviour
         damage -= ( (Armor - armor_Reduce) * damage) / 100; //Влияние Армора на получаемый урон
  
         current_Healh -= damage;
-        Debug.Log("Current health:" + current_Healh);
+      
         
         if(current_Healh <= 0)
         {

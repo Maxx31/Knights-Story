@@ -9,7 +9,10 @@ public class obstacle_paser : MonoBehaviour
        // Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Block")
         {
-            transform.parent.GetComponent<Enemy>().Jump();
+            if (transform.parent.GetComponent<Enemy>())
+            {
+                transform.parent.GetComponent<Enemy>().Jump();
+            }
         }
     }
 }
