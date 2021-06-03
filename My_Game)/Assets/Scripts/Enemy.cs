@@ -2,32 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class Enemy : MonoBehaviour
 {
     public float max_Health;
     public float Armor;
-    float current_Healh;
-     public Animator anim;
-    private bool Facing_Right;
+    public Animator anim;
     public bool Dead = false;
-    Rigidbody2D rb;
+
+    private float current_Healh;
+
+    private Rigidbody2D rb;
     
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         current_Healh = max_Health;
-
     }
-    
-    private void Update()
-    {
-     
-    
-    }
-
     public void Take_Damage(float damage)
     {
-    
+        if (Dead == true) return;
         int armor_Reduce = 3;
        if( Skills_Manager.use.Is_Enable_Passive_skills_Warrior[5] == true)
         {
@@ -38,7 +33,7 @@ public class Enemy : MonoBehaviour
             }
 
         }
-        damage -= ( (Armor - armor_Reduce) * damage) / 100; //Влияние Армора на получаемый урон
+        damage -= ( (Armor - armor_Reduce) * damage) / 100; //Armor 
  
         current_Healh -= damage;
       
@@ -47,16 +42,23 @@ public class Enemy : MonoBehaviour
         {
             anim.SetTrigger("Death");
             Dead = true;
-
+            //Stop any movement
+            GetComponent<BoxCollider2D>().isTrigger = true;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+            if (GetComponentInChildren<Melee_Enemy_Combat>() != null)
+            {
+                GetComponentInChildren<Melee_Enemy_Combat>().Is_Dead = true;
+            }
+            if (GetComponentInChildren<Magic_enemy_Combat>() != null)
+            {
+                GetComponentInChildren<Magic_enemy_Combat>().Is_Dead = true;
+            }
             transform.GetComponent<Patrol>().enabled = false;
-            Debug.Log("Enemy is dead");
 
-            Invoke("Die", 1.5f);
+            Invoke("Die", 1f);
         }
     }
-
- 
-
 
     void Die()
     {

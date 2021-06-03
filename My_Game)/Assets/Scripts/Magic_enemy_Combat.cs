@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class Magic_enemy_Combat : MonoBehaviour
 {
-
-    private Enemy_Purple_Ball Mage_Ball;
-
     public float Attack_rate;
-    float Next_Attact_Time = 0f;
+    public Animator anim;
+    public bool Is_Dead = false;
+
     private Patrol patrol;
     private bool In_range = false;
-    public Animator anim;
-
-    //public Transform Main;
-
+    private float Next_Attack_Time = 0f;
+    private Enemy_Purple_Ball Mage_Ball;
     private void Start()
     {
         patrol = GetComponentInParent<Patrol>();
@@ -22,13 +19,11 @@ public class Magic_enemy_Combat : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.time >= Next_Attact_Time && In_range == true && transform.parent.GetComponent<Enemy>().Dead == false)
+        if (Time.time >= Next_Attack_Time && In_range == true && Is_Dead == false)
         {
-
             anim.SetTrigger("Attack");
             Invoke("Shoot_Fireball", 0.5f);
-            //  Attack();
-            Next_Attact_Time = Time.time + 1f / Attack_rate;
+            Next_Attack_Time = Time.time + 1f / Attack_rate;
         }
     }
 
@@ -56,18 +51,18 @@ public class Magic_enemy_Combat : MonoBehaviour
 
         if (patrol.Moving_Right == false)
         {
-            position.x -= 1.3f;//Настроить откуда вылетает
+            position.x -= 1.3f;//Starting point of mage ball
         }
         else
         {
-            position.x += 1.3f;//Настроить откуда вылетает
+            position.x += 1.3f;//Starting point of mage ball
         }
-        //продолжаем концерт
+
         position.y -= 0.1f;
-        Enemy_Purple_Ball new_Purple_Ball = Instantiate(Mage_Ball, position, Mage_Ball.transform.rotation) as Enemy_Purple_Ball;
+        //Starting point of mage ball
+        Enemy_Purple_Ball new_Purple_Ball = Instantiate(Mage_Ball, position, Mage_Ball.transform.rotation) ;
         if (patrol.Moving_Right == false)
         {
-
             new_Purple_Ball.transform.localScale = new Vector3(-1f, 1f, 1f);
             new_Purple_Ball.Direction = new_Purple_Ball.transform.right * (-1);
         }
@@ -76,6 +71,5 @@ public class Magic_enemy_Combat : MonoBehaviour
             new_Purple_Ball.transform.localScale = new Vector3(1f, 1f, 1f);
             new_Purple_Ball.Direction = new_Purple_Ball.transform.right;
         }
-
     }
 }

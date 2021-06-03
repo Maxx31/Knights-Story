@@ -7,13 +7,11 @@ public class Platform_Move : MonoBehaviour
     public Transform pos1, pos2;
     private float speed = 8f;
 
-    Vector3 nextPos;
+    private Vector3 nextPos;
     void Start()
     {
         nextPos = pos1.position;
     }
-
-    // Update is called once per frame
 
     private void FixedUpdate()
     {
@@ -27,9 +25,5 @@ public class Platform_Move : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.fixedDeltaTime);
 
-    }
-    private void OnDrawGizmos()
-    {
-    //    Gizmos.DrawLine(pos1.position, pos2.position);
     }
 }

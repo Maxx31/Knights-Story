@@ -10,18 +10,17 @@ public class Enemy_Purple_Ball : MonoBehaviour
 
     public Vector3 Direction { set { direction = value; } }
 
-
+    private float liveTime;
     private ParticleSystem part;
     private void Awake()
     {
         part = GetComponentInChildren<ParticleSystem>();
+        liveTime = 2.5f;
     }
 
     private void Start()
     {
-
-        Destroy(gameObject, 2.5f);
-        // part.Play();
+        Destroy(gameObject, liveTime); 
     }
     private void Update()
     {
@@ -31,13 +30,16 @@ public class Enemy_Purple_Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Main_Hero>() != null)
+        if (collision.GetComponent<Main_Hero>() != null) //If our collision - main hero
+        {
             collision.GetComponent<Main_Hero>().Take_Damage(50);
-        if (collision.tag != "Useless")
+        }
+        if (collision.tag != "Useless") //Useless is all the back, so our ball don't destray when hitting it.
         {
             speed = 0;
             transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
-            transform.localScale = new Vector3(transform.localScale.x * 1.1f, transform.localScale.y * 1.1f, transform.localScale.z);
+
+            transform.localScale = new Vector3(transform.localScale.x * 1.1f, transform.localScale.y * 1.1f, transform.localScale.z);// Making Ball a bit bigger
             if (part != null)
                 part.Play();
             Destroy(gameObject, 0.5f);

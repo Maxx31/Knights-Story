@@ -6,29 +6,24 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Main_Hero : MonoBehaviour
 {
-    int temp = 0;
-    private float dirX;
-    Rigidbody2D rb;
+    public float HP;
     public float Move_Speed;
     public bool Facing_Right;
+
+    private bool double_Jump = true;
+    private float armor_Rate;
+    private float dirX;
+    private Rigidbody2D rb;
     private Vector3 Local_Scale;
     private Animator anim;
-    public float HP;
-    private float Armor_Rate;
-    private bool Double_Jump = true;
-
-
-
     private void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
-
-
     void Start()
     {
-        Armor_Rate = 55;
+        armor_Rate = 55;
         Local_Scale = transform.localScale;
         Move_Speed = 15f;
         HP = 100;
@@ -40,7 +35,7 @@ public class Main_Hero : MonoBehaviour
                 Armor_Boost = ((Armor_Boost) * 2f) + 2f;
 
             }
-            Armor_Rate += Armor_Boost;
+            armor_Rate += Armor_Boost;
         }
         if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true)
         {
@@ -49,7 +44,7 @@ public class Main_Hero : MonoBehaviour
                 Armor_Boost = ((Armor_Boost) * 1.8f) + 1.7f;
 
             }
-            Armor_Rate += Armor_Boost;
+            armor_Rate += Armor_Boost;
         }
         if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[1] == true  )
             {
@@ -82,20 +77,18 @@ public class Main_Hero : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         dirX = CrossPlatformInputManager.GetAxis("Horizontal") * Move_Speed;
 
         if (rb.velocity.y == 0)
         {
-            Double_Jump = true;
+            double_Jump = true;
 
         }
-        if (CrossPlatformInputManager.GetButtonDown("Jump") &&  ((Skills_Manager.use.Passive_skills_Warrior[7] > 0 && Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true) || (Skills_Manager.use.Passive_skills_Warrior[8] > 0 && Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true)) && rb.velocity.y != 0 && Double_Jump == true)
+        if (CrossPlatformInputManager.GetButtonDown("Jump") &&  ((Skills_Manager.use.Passive_skills_Warrior[7] > 0 && Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true) || (Skills_Manager.use.Passive_skills_Warrior[8] > 0 && Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true)) && rb.velocity.y != 0 && double_Jump == true)
         {
-            Double_Jump = false;
+            double_Jump = false;
             rb.AddForce(Vector2.up * 560f);
         }
         if (CrossPlatformInputManager.GetButtonDown("Jump") && rb.velocity.y == 0)
@@ -114,7 +107,6 @@ public class Main_Hero : MonoBehaviour
             anim.SetBool("Is_Running", false);
         }
 
-        Debug.Log( anim.GetBool("Is_Falling"));
         if(rb.velocity.y == 0)
         {
 
@@ -130,11 +122,7 @@ public class Main_Hero : MonoBehaviour
             anim.SetBool("Is_Jumping", false);
             anim.SetBool("Is_Falling", true);
         }
-
-
     }
-
-
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(dirX, rb.velocity.y);
@@ -155,8 +143,23 @@ public class Main_Hero : MonoBehaviour
             Local_Scale.x *= -1;
         }
         transform.localScale = Local_Scale;
-    } 
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = collision.gameObject.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = null;
+        }
+    }
     public void Take_Damage(float damage)
     {
        // Debug.Log("Current health:" + HP);
@@ -178,30 +181,13 @@ public class Main_Hero : MonoBehaviour
         }
         if (Dodged == false)
         {
-            damage -= (Armor_Rate * damage) / 100; //Влияние Армора на получаемый урон
+            damage -= (armor_Rate * damage) / 100; //Armor influence
             HP -= damage;
             //Debug.Log("Current health:" + HP);
         }
         else
         {
            // Debug.Log("Dodged");
-        }
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            this.transform.parent = collision.gameObject.transform;
-        }   
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            this.transform.parent = null;
-        }
+        }  
     }
 }

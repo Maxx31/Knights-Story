@@ -7,23 +7,23 @@ public class Player_Combat : MonoBehaviour
 {
     public ParticleSystem Super;
     public ParticleSystem Super2;
-    public Animator anim;
+    public Animator Anim;
+    public Transform Attack_Point;
+    public float attack_range_base;
+    public LayerMask Enemy_Layer;
+
     private Fireball fireball;
     private Rain rain;
-
-    public Transform attack_Point;
-    public float attack_range_base ;
-    private float Attack_rate = 23f;// chi
-    private float Fireball_rate = 23f;// chi
-    private float Rain_rate = 23f;// chi
-    private float SupperAttack_rate = 23f;// chi
-    public LayerMask enemy_Layer;
+    private float Attack_rate = 23f; 
+    private float Fireball_rate = 23f;
+    private float Rain_rate = 23f;
+    private float SupperAttack_rate = 23f;
     private float Damage = 25f;
-    float Next_Attact_Time = 0f;
     private Main_Hero m_h;
-    float Next_FireBall_Time = 0f;
-    float Next_Rain_Time = 0f;
-    float Next_SupperAttack_Time = 0f;
+    private float Next_Attact_Time = 0f;
+    private float Next_FireBall_Time = 0f;
+    private float Next_Rain_Time = 0f;
+    private float Next_SupperAttack_Time = 0f;
 
     private void Awake()
     { 
@@ -49,10 +49,9 @@ public class Player_Combat : MonoBehaviour
     {
         if (Time.time >= Next_Attact_Time)
         {
-        //    Debug.Log("Chi");
             if (CrossPlatformInputManager.GetButtonDown("attack"))
             {
-                anim.SetTrigger("Attack");
+                Anim.SetTrigger("Attack");
                 Invoke("Attack_Call", 0.2f);
                 Next_Attact_Time = Time.time + 1f / Attack_rate;
             }
@@ -61,7 +60,7 @@ public class Player_Combat : MonoBehaviour
             {
                 if (CrossPlatformInputManager.GetButtonDown("Skill_1"))
                 {
-                    anim.SetTrigger("Casting");
+                    Anim.SetTrigger("Casting");
                     Invoke("Shoot_Fireball", 0.3f);
                    // Next_Attact_Time = Time.time + 1f / Attack_rate;
                  //   Next_FireBall_Time = Time.time + 1f / Fireball_rate;
@@ -72,7 +71,7 @@ public class Player_Combat : MonoBehaviour
 
                 if (CrossPlatformInputManager.GetButtonDown("Skill_2"))
                 {
-                    anim.SetTrigger("Casting");
+                    Anim.SetTrigger("Casting");
                     Invoke("Shoot_Rain", 0.3f);
                     // Next_Attact_Time = Time.time + 1f / Attack_rate;
                     //   Next_Rain_Time = Time.time + 1f / Rain_rate;
@@ -83,7 +82,7 @@ public class Player_Combat : MonoBehaviour
 
                 if (CrossPlatformInputManager.GetButtonDown("Skill_3"))
                 {
-                    anim.SetTrigger("Super_Attack");
+                    Anim.SetTrigger("Super_Attack");
                     Invoke("SupperAttack", 0.3f);
                     // Next_Attact_Time = Time.time + 1f / Attack_rate;
                     //   Next_SupperAttack_Time = Time.time + 1f / SupperAttack_rate;
@@ -99,8 +98,7 @@ public class Player_Combat : MonoBehaviour
         {
             attack_range += 2.5f;
         }
-       Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(attack_Point.position, attack_range, enemy_Layer);
-        Debug.Log(Hit_Enemies.Length);
+       Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(Attack_Point.position, attack_range, Enemy_Layer);
           foreach (Collider2D enemy in Hit_Enemies)
         {
 
@@ -134,7 +132,6 @@ public class Player_Combat : MonoBehaviour
 
                 }
             }
-            Debug.Log("Bolno v noge");
         }
     }
 
@@ -143,11 +140,11 @@ public class Player_Combat : MonoBehaviour
         Vector3 position = transform.position;
         if (m_h.Facing_Right == false)
         {
-            position.x -= 1.12f;//Настроить откуда вылетает
+            position.x -= 1.12f;//starting point
         }
         else
         {
-            position.x += 1.12f;//Настроить откуда вылетает
+            position.x += 1.12f;//starting point
         }
         position.y -= 1.1f;
            Fireball new_Fireball =  Instantiate(fireball, position, fireball.transform.rotation) as Fireball;
@@ -173,11 +170,11 @@ public class Player_Combat : MonoBehaviour
             Vector3 position = transform.position;
             if (m_h.Facing_Right == false)
              {
-                position.x -= (0.9f + (Number * 1.55f) ); //(3.9f + (Number * 1.55f) ) 
+                position.x -= (0.9f + (Number * 1.55f) ); // Place where rain begin
             }
             else
             {
-                position.x += (0.9f + (Number * 1.55f));//Настроить откуда вылетает  (3.9f + (Number * 1.55f))
+                position.x += (0.9f + (Number * 1.55f));// Place where rain begin
             }
             position.y += 7f;
             Rain new_Rain = Instantiate(rain, position, rain.transform.rotation) as Rain;
@@ -220,10 +217,10 @@ public class Player_Combat : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        if(attack_Point == null)
+        if(Attack_Point == null)
            return;
         
-        Gizmos.DrawWireSphere(attack_Point.position, attack_range_base);
+        Gizmos.DrawWireSphere(Attack_Point.position, attack_range_base);
     }
 
  

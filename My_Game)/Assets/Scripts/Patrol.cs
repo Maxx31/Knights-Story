@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
-
     public float speed;
-
-    public int position_Of_Patrol;
     public bool is_Bomj = false;
     public Transform point;
-    private Vector3 Local_Scale;
     public bool Moving_Right;
-    Rigidbody2D rb;
-    Transform player;
     public Transform GFX;
     public float Stopping_Distanse;
-    bool chill = false;
-    bool angry = false;
-    bool go_back = false;
+    public int position_Of_Patrol;
+
     private float dirX;
-    // Start is called before the first frame update
+    private Vector3 Local_Scale;
+    private Rigidbody2D rb;
+    private Transform player;
+    private bool chill = false;
+    private bool angry = false;
+    private bool go_back = false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -28,10 +26,8 @@ public class Patrol : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
-    {
-            
+    {    
         if (Vector2.Distance(transform.position, point.position) < position_Of_Patrol && angry == false)
         {
             chill = true;
@@ -61,7 +57,6 @@ public class Patrol : MonoBehaviour
             Go_Back();
         }
     }
-
     void Chill()
     {
    
@@ -136,7 +131,5 @@ public class Patrol : MonoBehaviour
                GFX.localScale = new Vector3( -1f, 1f, 1f);
             }
         }
-
-
     }
 }

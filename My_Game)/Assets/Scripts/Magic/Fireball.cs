@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    private float speed = 10f;
+    private float speed ;
 
     private Vector3 direction;
 
@@ -13,27 +13,32 @@ public class Fireball : MonoBehaviour
     private Animator anim;
 
     private ParticleSystem part;
+
+    private float liveTime;
     private void Awake()
     {
         anim = GetComponent<Animator>();
         part = GetComponentInChildren<ParticleSystem>();
+        liveTime = 2.5f;
+        speed = 10f;
     }
 
     private void Start()
     {
-         Destroy(gameObject, 2.5f);
-       // part.Play();
+         Destroy(gameObject, liveTime);
     }
     private void Update()
     {
-
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<Enemy>() !=null)
-        collision.GetComponent<Enemy>().Take_Damage(50);
+        if (collision.GetComponent<Enemy>() != null)
+        {
+            collision.GetComponent<Enemy>().Take_Damage(50);
+        }
+
         if (collision.tag != "Useless") {
             anim.SetTrigger("Explose");
             speed = 0;

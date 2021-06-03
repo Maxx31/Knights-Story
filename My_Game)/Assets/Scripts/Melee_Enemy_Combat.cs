@@ -9,20 +9,19 @@ public class Melee_Enemy_Combat : MonoBehaviour
     public float attack_range;
     public float Attack_rate ;
     public float Damage = 25f;
-    float Next_Attact_Time = 0f;
- 
-    bool In_range = false;
-   public Animator anim;
+    public Animator anim;
     public LayerMask M_Hero;
+    public bool Is_Dead = false;
+
+    private float next_Attact_Time = 0f;
+    private bool in_range = false;
     private void Update()
     {
-        if (Time.time >= Next_Attact_Time && In_range == true && transform.parent.GetComponent<Enemy>().Dead == false)
+        if (Time.time >= next_Attact_Time && in_range == true )
         {
-           
             anim.SetTrigger("Attack");
             Invoke("Attack", 0.7f);
-          //  Attack();
-                Next_Attact_Time = Time.time + 1f / Attack_rate;
+            next_Attact_Time = Time.time + 1f / Attack_rate;
         }
     }
 
@@ -32,7 +31,7 @@ public class Melee_Enemy_Combat : MonoBehaviour
         
         if (collision.gameObject.tag == "Player")
         {
-            In_range = true;
+            in_range = true;
         }
     }
 
@@ -40,7 +39,7 @@ public class Melee_Enemy_Combat : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            In_range = false;
+            in_range = false;
         }
     }
 
@@ -48,7 +47,7 @@ public class Melee_Enemy_Combat : MonoBehaviour
     void Attack()
     {
  
-        if (In_range)
+        if (in_range)
         {
             Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(attack_Point.position, attack_range, M_Hero);
 
