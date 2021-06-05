@@ -92,8 +92,7 @@ public class Main_Hero : MonoBehaviour
             rb.AddForce(Vector2.up * 560f);
         }
         if (CrossPlatformInputManager.GetButtonDown("Jump") && rb.velocity.y == 0)
-        {
-            
+        {      
             rb.AddForce(Vector2.up * 700f);
 
         }
