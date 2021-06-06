@@ -6,19 +6,21 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Enemy : MonoBehaviour
 {
-    public float max_Health;
+    public float Max_Health;
     public float Armor;
     public Animator anim;
     public bool Dead = false;
 
+    [SerializeField]
+    private Health_Bar healthbar;
     private float current_Healh;
-
     private Rigidbody2D rb;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        current_Healh = max_Health;
+        current_Healh = Max_Health;
+        healthbar.SetHealth(current_Healh, Max_Health);
     }
     public void Take_Damage(float damage)
     {
@@ -36,10 +38,14 @@ public class Enemy : MonoBehaviour
         damage -= ( (Armor - armor_Reduce) * damage) / 100; //Armor 
  
         current_Healh -= damage;
-      
-        
-        if(current_Healh <= 0)
+
+
+
+        if (current_Healh <= 0)
         {
+
+            healthbar.SetHealth(Max_Health, Max_Health);
+
             anim.SetTrigger("Death");
             Dead = true;
             //Stop any movement
@@ -57,7 +63,9 @@ public class Enemy : MonoBehaviour
             transform.GetComponent<Patrol>().enabled = false;
 
             Invoke("Die", 1f);
+            return;
         }
+        healthbar.SetHealth(current_Healh, Max_Health);
     }
 
     void Die()

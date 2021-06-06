@@ -9,10 +9,18 @@ public class Main_Hero : MonoBehaviour
     public float HP;
     public float Move_Speed;
     public bool Facing_Right;
+    public Slider slider;
+    public Vector3 Offset;
+
+    [SerializeField]
+    private Color Low;
+    [SerializeField]
+    private Color High;
 
     private bool double_Jump = true;
     private float armor_Rate;
     private float dirX;
+    private float max_health;
     private Rigidbody2D rb;
     private Vector3 Local_Scale;
     private Animator anim;
@@ -20,13 +28,15 @@ public class Main_Hero : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        HP = 100;
+        max_health = HP;
+        SetHealth(max_health, max_health);
     }
     void Start()
     {
         armor_Rate = 55;
         Local_Scale = transform.localScale;
         Move_Speed = 15f;
-        HP = 100;
         float Armor_Boost = 2f;
         if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[6] == true)
         {
@@ -187,6 +197,17 @@ public class Main_Hero : MonoBehaviour
         else
         {
            // Debug.Log("Dodged");
-        }  
+        }
+        SetHealth(HP, max_health);
+    }
+
+    public void SetHealth(float health, float maxHealth)
+    {
+
+        slider.gameObject.SetActive(health <= maxHealth);
+        slider.maxValue = maxHealth;
+        slider.value = health ;
+        slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Low, High, slider.normalizedValue);
+
     }
 }
