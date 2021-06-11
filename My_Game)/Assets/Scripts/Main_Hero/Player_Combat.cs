@@ -33,15 +33,7 @@ public class Player_Combat : MonoBehaviour
     private void Start()
     {
         m_h = GetComponent<Main_Hero>();
-        
-        if(  Skills_Manager.use.Passive_skills_Warrior[0]> 0 && Skills_Manager.use.Is_Enable_Passive_skills_Warrior[0] == true )
-        {
-            // Дописать разные уровни - + разное кол-во дамаги 
-            Damage += 2f + 3 * Skills_Manager.use.Passive_skills_Warrior[0];
 
-        }
-
-       
     }
 
 
@@ -94,42 +86,28 @@ public class Player_Combat : MonoBehaviour
     void Attack(bool Super = false)
     {
         float attack_range = attack_range_base;
-        if (Super == true)
+        float tDamage = Damage;
+        
+        if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[0] == true)
         {
+            tDamage *= 1.5f;
+        }
+            if (Super == true)
+        {
+            tDamage *= 1.5f;
             attack_range += 2.5f;
         }
        Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(Attack_Point.position, attack_range, Enemy_Layer);
           foreach (Collider2D enemy in Hit_Enemies)
         {
-            enemy.GetComponent<Enemy>().Take_Damage(Damage);
-
-            if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[0] == true)
+            enemy.GetComponent<Enemy>().Take_Damage(tDamage);
+            if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[2] == true)
             {
-
-                if (Skills_Manager.use.Passive_skills_Warrior[2] == 1)
-                {
-                    if (Random.Range(1, 16) < 3)
-                    {
-                        enemy.GetComponent<Enemy>().Take_Damage(Damage * 1.3f);
-                    }
-
-                }
-                else if (Skills_Manager.use.Passive_skills_Warrior[2] == 2)
-                {
-                    if (Random.Range(1, 31) < 7)
-                    {
-                        enemy.GetComponent<Enemy>().Take_Damage(Damage * 1.7f);
-                    }
-
-                }
-                else 
-                {
                     if (Random.Range(1, 16) < 4)
                     {
-                        enemy.GetComponent<Enemy>().Take_Damage(Damage * 2.1f);
+                        
+                        enemy.GetComponent<Enemy>().Take_Damage(Damage * 2f);
                     }
-
-                }
             }
         }
     }

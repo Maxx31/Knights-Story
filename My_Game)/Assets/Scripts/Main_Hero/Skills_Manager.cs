@@ -6,7 +6,7 @@ public class Skills_Manager : MonoBehaviour
 {
    public int[] Passive_skills_Warrior = new int[10];
     /*
-    0 - Extra Damage
+    0 - Extra Damage 
     1 - Extra Move speed
     2 - Сritical damage
     3 - Evasion

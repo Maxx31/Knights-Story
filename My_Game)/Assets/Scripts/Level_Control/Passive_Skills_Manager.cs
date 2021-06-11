@@ -23,7 +23,9 @@ public class Passive_Skills_Manager : MonoBehaviour
     [SerializeField]
     private Text chosen_button_description; 
     [SerializeField]
-    private GameObject passive_menu;
+    private GameObject passive_menu; 
+    [SerializeField]
+    private GameObject main_Hero;
 
     private int current_num = -1;
     public void Add_Skill(int ccount)
@@ -67,6 +69,14 @@ public class Passive_Skills_Manager : MonoBehaviour
         if (active[ccount] != -1)
         {
             Skills_Manager.use.Is_Enable_Passive_skills_Warrior[active[ccount]] = false;
+            if(active[ccount] == 1)
+            {
+                main_Hero.GetComponent<Main_Hero>().Move_Speed -= 5f;
+            }
+            else if (active[ccount] == 4)
+            {
+                main_Hero.GetComponent<Main_Hero>().Max_health -= 15f;
+            }
         }
 
         int temp = active[ccount];
@@ -83,12 +93,17 @@ public class Passive_Skills_Manager : MonoBehaviour
         }
 
         all_buttons[current_num].GetComponent<Image>().color = new Color(255, 255, 255);
-
-  
         current_num = -1;
 
         Skills_Manager.use.Is_Enable_Passive_skills_Warrior[active[ccount]] = true;
-        Skills_Manager.use.Passive_skills_Warrior[active[ccount]] = 3;
+        if (active[ccount] == 1)
+        {
+            main_Hero.GetComponent<Main_Hero>().Move_Speed += 5f;
+        }
+        else if(active[ccount] == 4)
+        {
+            main_Hero.GetComponent<Main_Hero>().Max_health += 15f;
+        }
     }
 
     public void Exit_Menu()
