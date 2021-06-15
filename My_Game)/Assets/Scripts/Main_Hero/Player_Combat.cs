@@ -48,9 +48,9 @@ public class Player_Combat : MonoBehaviour
                 Next_Attact_Time = Time.time + 1f / Attack_rate;
             }
 
-            if(Time.time >= Next_FireBall_Time && Time.time >= Next_Attact_Time)
+            if(Time.time >= Next_FireBall_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[1] == true)
             {
-                if (CrossPlatformInputManager.GetButtonDown("Skill_1"))
+                if (CrossPlatformInputManager.GetButtonDown("Skill_2"))
                 {
                     Anim.SetTrigger("Casting");
                     Invoke("Shoot_Fireball", 0.3f);
@@ -58,10 +58,10 @@ public class Player_Combat : MonoBehaviour
                  //   Next_FireBall_Time = Time.time + 1f / Fireball_rate;
                 }
             }
-             if (Time.time >= Next_Rain_Time && Time.time >= Next_Attact_Time)
+             if (Time.time >= Next_Rain_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[2] == true)
             {
 
-                if (CrossPlatformInputManager.GetButtonDown("Skill_2"))
+                if (CrossPlatformInputManager.GetButtonDown("Skill_3"))
                 {
                     Anim.SetTrigger("Casting");
                     Invoke("Shoot_Rain", 0.3f);
@@ -69,10 +69,10 @@ public class Player_Combat : MonoBehaviour
                     //   Next_Rain_Time = Time.time + 1f / Rain_rate;
                 }
             }
-            if (Time.time >= Next_Rain_Time && Time.time >= Next_Attact_Time)
+            if (Time.time >= Next_SupperAttack_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[0] == true)
             {
 
-                if (CrossPlatformInputManager.GetButtonDown("Skill_3"))
+                if (CrossPlatformInputManager.GetButtonDown("Skill_1"))
                 {
                     Anim.SetTrigger("Super_Attack");
                     Invoke("SupperAttack", 0.3f);
@@ -100,14 +100,16 @@ public class Player_Combat : MonoBehaviour
        Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(Attack_Point.position, attack_range, Enemy_Layer);
           foreach (Collider2D enemy in Hit_Enemies)
         {
-            enemy.GetComponent<Enemy>().Take_Damage(tDamage);
             if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[2] == true)
             {
                     if (Random.Range(1, 16) < 4)
                     {
-                        
-                        enemy.GetComponent<Enemy>().Take_Damage(Damage * 2f);
+                    tDamage *= 2;
                     }
+            }
+            if(enemy.GetComponent<Enemy>() != null)
+            {
+                enemy.GetComponent<Enemy>().Take_Damage(tDamage);
             }
         }
     }
@@ -124,7 +126,7 @@ public class Player_Combat : MonoBehaviour
             position.x += 1.12f;//starting point
         }
         position.y -= 1.1f;
-           Fireball new_Fireball =  Instantiate(fireball, position, fireball.transform.rotation) as Fireball;
+           Fireball new_Fireball =  Instantiate(fireball, position, fireball.transform.rotation) ;
 
         if (m_h.Facing_Right == false)
         {

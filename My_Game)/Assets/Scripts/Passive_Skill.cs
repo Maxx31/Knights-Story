@@ -8,6 +8,7 @@ public class Passive_Skill : MonoBehaviour
     private GameObject manager;
     [SerializeField]
     private int ccount;
+
     private Passive_Skills_Manager _manager;
 
 
@@ -17,7 +18,10 @@ public class Passive_Skill : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _manager.Add_Skill(ccount);
-        Destroy(this.gameObject);
+        if (collision.CompareTag("Player"))
+        {
+            _manager.Add_Skill(ccount);
+            Destroy(this.gameObject);
+        }
     }
 }

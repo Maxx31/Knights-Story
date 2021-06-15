@@ -27,6 +27,10 @@ public class Passive_Skills_Manager : MonoBehaviour
     [SerializeField]
     private GameObject main_Hero;
 
+    [SerializeField]
+    private GameObject Tutorial_Arrows;
+
+    private int total = 0;
     private int current_num = -1;
     public void Add_Skill(int ccount)
     {
@@ -54,7 +58,6 @@ public class Passive_Skills_Manager : MonoBehaviour
         SetDescription(all[ccount]);
        
     }
-
     public void Active_Button(int ccount)
     {
         if (current_num == -1)
@@ -116,12 +119,26 @@ public class Passive_Skills_Manager : MonoBehaviour
             all_buttons[current_num].GetComponent<Image>().color = new Color(255, 255, 255);
         }
         passive_menu.SetActive(false);
+
+        if (total == 0)
+        {
+            Tutorial_Arrows.SetActive(true);
+        }
     }
 
     public void Call_Menu()
     {
         Time.timeScale = 0f;
         passive_menu.SetActive(true);
+        int total = 0;
+        for(int i = 0; i< 3; i++)
+        {
+            if (active[i] != -1) total++;
+        }
+        if(total == 0)
+        {
+            Tutorial_Arrows.SetActive(true);
+        }
     }
 
     public void SetDescription(int ccount)

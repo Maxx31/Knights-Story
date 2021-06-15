@@ -110,6 +110,12 @@ public class Main_Hero : MonoBehaviour
         {
             transform.parent = collision.gameObject.transform;
         }
+        if (collision.gameObject.CompareTag("Mace"))
+        {
+           // Vector3 dir = (Vector3)collision.contacts[0].point - transform.position;
+           // dir = -dir.normalized;
+           // rb.AddForce(dir * 100, ForceMode2D.Impulse);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -119,8 +125,29 @@ public class Main_Hero : MonoBehaviour
             transform.parent = null;
         }
     }
+
+    public IEnumerator KnockBack(float knockBack_duration, float knockPower, Transform obj)
+    {
+        float timer = 0;
+        while(knockBack_duration > timer)
+        {
+            timer += Time.deltaTime;
+            Vector2 direction = (obj.transform.position - this.transform.position).normalized;
+           Debug.Log("X = " + direction.x + " Y = " + direction.y);
+          // Debug.Log(direction.y);
+            rb.AddForce(-direction * knockPower);
+        }
+        yield return 0;
+
+    }
+
+
     public void Take_Damage(float damage)
     {
+        //Debug.Log("Damage = " + damage);
+
+      //  if (hp - damage <= 0) return;
+
         float Armor_Boost = 0f;
         if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[6] == true)
         {
@@ -130,7 +157,7 @@ public class Main_Hero : MonoBehaviour
         {
             Armor_Boost += 9f;
         }
-        // Debug.Log("Current health:" + HP);
+        
         bool Dodged = false;
 
         if ( Skills_Manager.use.Is_Enable_Passive_skills_Warrior[3] == true)
@@ -145,15 +172,21 @@ public class Main_Hero : MonoBehaviour
         {
             damage -= ( (armor_Rate + Armor_Boost) * damage) / 100; //Armor influence
             hp -= damage;
-            //Debug.Log("Current health:" + HP);
         }
         else
         {
             Debug.Log("Dodged");
         }
+
         SetHealth(hp, Max_health);
     }
 
+    public void AddHealth(float health_to_add)
+    {
+        hp = Mathf.Min((health_to_add + hp), Max_health);
+        SetHealth(hp, Max_health);
+        Debug.Log(hp);
+    }
     public void SetHealth(float health, float maxHealth)
     {
 
@@ -163,4 +196,7 @@ public class Main_Hero : MonoBehaviour
         slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Low, High, slider.normalizedValue);
 
     }
+
+
+
 }

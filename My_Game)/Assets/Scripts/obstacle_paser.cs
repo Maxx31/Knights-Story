@@ -8,6 +8,7 @@ public class obstacle_paser : MonoBehaviour
     {
         if (collision.gameObject.tag == "Block") //Jumping over blocks
         {
+            Debug.Log("Aga");
             if (transform.parent.GetComponent<Enemy>())
             {
                 transform.parent.GetComponent<Enemy>().Jump();

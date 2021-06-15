@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Useless
   - Platform
+  - Mace
   layers:
   - Default
   - TransparentFX

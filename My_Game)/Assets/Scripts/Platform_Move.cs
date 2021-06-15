@@ -5,6 +5,8 @@ using UnityEngine;
 public class Platform_Move : MonoBehaviour
 {
     public Transform pos1, pos2;
+
+    [SerializeField]
     private float speed = 8f;
 
     private Vector3 nextPos;

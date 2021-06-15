@@ -43,10 +43,9 @@ public class Melee_Enemy_Combat : MonoBehaviour
         }
     }
 
-
     void Attack()
     {
- 
+        if (Is_Dead) return;
         if (in_range)
         {
             Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(attack_Point.position, attack_range, M_Hero);

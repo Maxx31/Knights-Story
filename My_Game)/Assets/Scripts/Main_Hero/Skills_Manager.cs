@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Skills_Manager : MonoBehaviour
 {
    public int[] Passive_skills_Warrior = new int[10];
@@ -16,12 +16,17 @@ public class Skills_Manager : MonoBehaviour
     7 - Double jump
     8 - FLAG(double jump, extra movespeed, extra armor)
      */
-
     public bool[] Is_Enable_Passive_skills_Warrior = new bool[10];
 
     public int[] Active_Button_Warrior = new int[3];
 
-    public int[] Active_skills_Warrior = new int[10];
+    public bool[] Active_skills_Warrior = new bool[3];
+
+    [SerializeField]
+    private List<Button> all_active_buttons;
+    [SerializeField]
+    private List<Sprite> all_active_images;
+
     private static Skills_Manager _use;
     public static Skills_Manager use
     {
@@ -33,7 +38,6 @@ public class Skills_Manager : MonoBehaviour
     }
     void Awake()
     {
-
         if (_use == null) //Singleton
         {
             Debug.Log("_Use = null");
@@ -47,4 +51,8 @@ public class Skills_Manager : MonoBehaviour
         }
     }
 
+    public void Active_SKill_Set(int ccount)
+    {
+        all_active_buttons[ccount].GetComponent<Image>().sprite = all_active_images[ccount];
+    }
 }
