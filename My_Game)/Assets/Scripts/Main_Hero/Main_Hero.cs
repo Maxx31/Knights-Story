@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
-
+using UnityEngine.SceneManagement;
 public class Main_Hero : MonoBehaviour
 {
     public float Move_Speed;
@@ -177,7 +177,10 @@ public class Main_Hero : MonoBehaviour
         {
             Debug.Log("Dodged");
         }
-
+        if(hp <= 0)
+        {
+            die();
+        }
         SetHealth(hp, Max_health);
     }
 
@@ -197,6 +200,10 @@ public class Main_Hero : MonoBehaviour
 
     }
 
+    private void die()
+    {
+        SceneManager.LoadScene(4);
+    }
 
 
 }
