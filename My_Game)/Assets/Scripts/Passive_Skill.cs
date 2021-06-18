@@ -9,8 +9,10 @@ public class Passive_Skill : MonoBehaviour
     [SerializeField]
     private int ccount;
 
-    private Passive_Skills_Manager _manager;
+    [SerializeField]
+    private Animator anim;
 
+    private Passive_Skills_Manager _manager;
 
     private void Start()
     {
@@ -20,6 +22,7 @@ public class Passive_Skill : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            anim.SetTrigger("TextShow");
             _manager.Add_Skill(ccount);
             Destroy(this.gameObject);
         }
