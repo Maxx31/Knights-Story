@@ -17,16 +17,20 @@ public class First_Skill : MonoBehaviour
     private float timeToAppear = 3f;
     private float timeWhenDisappear;
     private Passive_Skills_Manager _manager;
+    private bool is_taken = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && is_taken == false)
         {
-            arrow.SetActive(true);
-            timeWhenDisappear = Time.time + timeToAppear;
-             _manager.Add_Skill(0);
+            {
+                arrow.SetActive(true);
+                timeWhenDisappear = Time.time + timeToAppear;
+                _manager.Add_Skill(0);
 
-            sprite_to_enable.sprite = null;
-            text_to_enable.text = "";
+                sprite_to_enable.sprite = null;
+                text_to_enable.text = "";
+            }
+            is_taken = true;
         }
     }
 

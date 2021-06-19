@@ -26,7 +26,8 @@ public class Skills_Manager : MonoBehaviour
     private List<Button> all_active_buttons;
     [SerializeField]
     private List<Sprite> all_active_images;
-
+    [SerializeField]
+    private Sprite Default;
     private static Skills_Manager _use;
     public static Skills_Manager use
     {
@@ -36,7 +37,22 @@ public class Skills_Manager : MonoBehaviour
             
         }
     }
-    void Awake()
+
+    private void Start()
+    {
+        for(int i = 0; i< 3; i++)
+        {
+            if(Active_skills_Warrior[i] == true)
+            {
+                all_active_buttons[i].GetComponent<Image>().sprite = all_active_images[i];
+            }
+            else
+            {
+                all_active_buttons[i].GetComponent<Image>().sprite = Default;
+            }
+        }
+    }
+    private void Awake()
     {
         if (_use == null) //Singleton
         {
@@ -53,6 +69,8 @@ public class Skills_Manager : MonoBehaviour
 
     public void Active_SKill_Set(int ccount)
     {
+        
+        Debug.Log(ccount);
         all_active_buttons[ccount].GetComponent<Image>().sprite = all_active_images[ccount];
     }
 }

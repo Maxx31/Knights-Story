@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-
+using UnityEngine.SceneManagement;
 public class Passive_Skills_Manager : MonoBehaviour
 {
     private List<int> all = Enumerable.Repeat(-1, passive_skills_count).ToList();
@@ -32,6 +32,16 @@ public class Passive_Skills_Manager : MonoBehaviour
 
     private int total = 0;
     private int current_num = -1;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
+       
+    }
     public void Add_Skill(int ccount)
     {
         for (int i = 0; i < passive_skills_count; i++)
@@ -174,4 +184,5 @@ public class Passive_Skills_Manager : MonoBehaviour
                 break;
         }
     }
+
 }

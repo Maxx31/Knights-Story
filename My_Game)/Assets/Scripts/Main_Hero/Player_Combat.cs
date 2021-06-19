@@ -71,9 +71,10 @@ public class Player_Combat : MonoBehaviour
             }
             if (Time.time >= Next_SupperAttack_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[0] == true)
             {
-
+               // Debug.Log(Skills_Manager.use.Active_skills_Warrior[0]);
                 if (CrossPlatformInputManager.GetButtonDown("Skill_1"))
                 {
+                    Debug.Log(Skills_Manager.use.Active_skills_Warrior[0]);
                     Anim.SetTrigger("Super_Attack");
                     Invoke("SupperAttack", 0.3f);
                     // Next_Attact_Time = Time.time + 1f / Attack_rate;
