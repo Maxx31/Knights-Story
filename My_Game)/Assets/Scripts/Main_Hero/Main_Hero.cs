@@ -34,7 +34,6 @@ public class Main_Hero : MonoBehaviour
     {
         armor_Rate = 55;
         Local_Scale = transform.localScale;
-        Move_Speed = 15f;
       
     }
     void Update()

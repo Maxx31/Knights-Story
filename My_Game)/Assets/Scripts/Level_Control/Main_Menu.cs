@@ -24,7 +24,7 @@ public class Main_Menu : MonoBehaviour
                 break;
             case 2:
                 level2B.interactable = true;
-                level3B.interactable = true;
+               // level3B.interactable = true; 
                 break;
 
         }
@@ -37,6 +37,7 @@ public class Main_Menu : MonoBehaviour
 
     public void Reset()
     {
+        PlayerPrefs.SetInt("FirstTime", 0);
         level2B.interactable = false;
         level3B.interactable = false;
         PlayerPrefs.DeleteAll();

@@ -33,14 +33,45 @@ public class Passive_Skills_Manager : MonoBehaviour
     private int total = 0;
     private int current_num = -1;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     private void Start()
     {
-       
+       for(int i = 0; i< passive_skills_count; i++)
+        {
+            if(Singleton_Skills_Manager.use.Passive_skills_Warrior[i] != -1)
+            {
+                all[i] = Singleton_Skills_Manager.use.Passive_skills_Warrior[i];
+
+                all_buttons[i].GetComponent<Image>().sprite = all_images[Singleton_Skills_Manager.use.Passive_skills_Warrior[i]];
+
+                all_buttons[i].GetComponent<Image>().color = new Color(255, 255, 255);
+            }
+            else
+            {
+                all_buttons[i].GetComponent<Image>().sprite = _default;
+            }
+        }
+
+       for(int i = 0; i< 3; i++)
+        {
+            if (Singleton_Skills_Manager.use.Active_PassiveSkills[i] != -1)
+            {
+                active[i] = Singleton_Skills_Manager.use.Active_PassiveSkills[i];
+                Skills_Manager.use.Is_Enable_Passive_skills_Warrior[active[i]] = true;
+                if (active[i] == 1)
+                {
+                    main_Hero.GetComponent<Main_Hero>().Move_Speed += 5f; //Check
+                }
+                else if (active[i] == 4)
+                {
+                    main_Hero.GetComponent<Main_Hero>().Max_health += 15f;
+                }
+                Active_Buttons[i].GetComponent<Image>().sprite = all_images[Singleton_Skills_Manager.use.Active_PassiveSkills[i]];
+            }
+            else
+            {
+                Active_Buttons[i].GetComponent<Image>().sprite = _default;
+            }
+        }
     }
     public void Add_Skill(int ccount)
     {
@@ -50,6 +81,8 @@ public class Passive_Skills_Manager : MonoBehaviour
             {
                 all_buttons[i].GetComponent<Image>().sprite = all_images[ccount];
                 all[i] = ccount;
+                Singleton_Skills_Manager.use.Passive_skills_Warrior[i] = ccount;
+                PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Passive_skills_Warrior[i], ccount);
                 break;
             }
         }
@@ -95,6 +128,14 @@ public class Passive_Skills_Manager : MonoBehaviour
         int temp = active[ccount];
         active[ccount] = all[current_num];
         all[current_num] = temp;
+
+        Singleton_Skills_Manager.use.Active_PassiveSkills[ccount] = active[ccount];
+        Singleton_Skills_Manager.use.Passive_skills_Warrior[current_num] = all[current_num];
+
+        PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Active_PassiveSkills[ccount], active[ccount]);
+        PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Passive_skills_Warrior[current_num], all[current_num]);
+
+
         Active_Buttons[ccount].GetComponent<Image>().sprite = all_images[active[ccount]];
         if (all[current_num] == -1)
         {
@@ -109,9 +150,12 @@ public class Passive_Skills_Manager : MonoBehaviour
         current_num = -1;
 
         Skills_Manager.use.Is_Enable_Passive_skills_Warrior[active[ccount]] = true;
+        Singleton_Skills_Manager.use.Is_Enable_Passive_skills_Warrior[active[ccount]] = true;
+
+        PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Is_Enable_Passive_skills_Warrior[active[ccount]],1);
         if (active[ccount] == 1)
         {
-            main_Hero.GetComponent<Main_Hero>().Move_Speed += 5f;
+            main_Hero.GetComponent<Main_Hero>().Move_Speed += 5f; //Check
         }
         else if(active[ccount] == 4)
         {
@@ -130,10 +174,6 @@ public class Passive_Skills_Manager : MonoBehaviour
         }
         passive_menu.SetActive(false);
 
-        if (total == 0)
-        {
-            Tutorial_Arrows.SetActive(true);
-        }
     }
 
     public void Call_Menu()
@@ -145,9 +185,14 @@ public class Passive_Skills_Manager : MonoBehaviour
         {
             if (active[i] != -1) total++;
         }
-        if(total == 0)
+        if (total == 0)
         {
+            Debug.Log(total);
             Tutorial_Arrows.SetActive(true);
+        }
+        else
+        {
+            Tutorial_Arrows.SetActive(false);
         }
     }
 

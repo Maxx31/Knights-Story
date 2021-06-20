@@ -14,10 +14,10 @@ public class Player_Combat : MonoBehaviour
 
     private Fireball fireball;
     private Rain rain;
-    private float Attack_rate = 23f; 
-    private float Fireball_rate = 23f;
-    private float Rain_rate = 23f;
-    private float SupperAttack_rate = 23f;
+    private float Attack_rate = 3f; 
+    private float Fireball_rate = 3f;
+    private float Rain_rate = 3f;
+    private float SupperAttack_rate = 3f;
     private float Damage = 25f;
     private Main_Hero m_h;
     private float Next_Attact_Time = 0f;
@@ -54,8 +54,8 @@ public class Player_Combat : MonoBehaviour
                 {
                     Anim.SetTrigger("Casting");
                     Invoke("Shoot_Fireball", 0.3f);
-                   // Next_Attact_Time = Time.time + 1f / Attack_rate;
-                 //   Next_FireBall_Time = Time.time + 1f / Fireball_rate;
+                    Next_Attact_Time = Time.time + 1f / Attack_rate;
+                    Next_FireBall_Time = Time.time + 1f / Fireball_rate;
                 }
             }
              if (Time.time >= Next_Rain_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[2] == true)
@@ -65,20 +65,20 @@ public class Player_Combat : MonoBehaviour
                 {
                     Anim.SetTrigger("Casting");
                     Invoke("Shoot_Rain", 0.3f);
-                    // Next_Attact_Time = Time.time + 1f / Attack_rate;
-                    //   Next_Rain_Time = Time.time + 1f / Rain_rate;
+                    Next_Attact_Time = Time.time + 1f / Attack_rate;
+                    Next_Rain_Time = Time.time + 1f / Rain_rate;
                 }
             }
             if (Time.time >= Next_SupperAttack_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[0] == true)
             {
-               // Debug.Log(Skills_Manager.use.Active_skills_Warrior[0]);
+               Debug.Log(Skills_Manager.use.Active_skills_Warrior[0]);
                 if (CrossPlatformInputManager.GetButtonDown("Skill_1"))
                 {
                     Debug.Log(Skills_Manager.use.Active_skills_Warrior[0]);
                     Anim.SetTrigger("Super_Attack");
                     Invoke("SupperAttack", 0.3f);
-                    // Next_Attact_Time = Time.time + 1f / Attack_rate;
-                    //   Next_SupperAttack_Time = Time.time + 1f / SupperAttack_rate;
+                    Next_Attact_Time = Time.time + 1f / Attack_rate;
+                    Next_SupperAttack_Time = Time.time + 1f / SupperAttack_rate;
                 }
             }
         }

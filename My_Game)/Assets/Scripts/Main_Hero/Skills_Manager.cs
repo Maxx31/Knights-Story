@@ -8,7 +8,7 @@ public class Skills_Manager : MonoBehaviour
     /*
     0 - Extra Damage 
     1 - Extra Move speed
-    2 - Сritical damage
+    2 - Critical damage
     3 - Evasion
     4 - Maximym HP increased
     5 - Armor penetration
@@ -28,6 +28,7 @@ public class Skills_Manager : MonoBehaviour
     private List<Sprite> all_active_images;
     [SerializeField]
     private Sprite Default;
+
     private static Skills_Manager _use;
     public static Skills_Manager use
     {
@@ -40,37 +41,26 @@ public class Skills_Manager : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i< 3; i++)
+        _use = this;
+        for (int i = 0; i< 3; i++)
         {
-            if(Active_skills_Warrior[i] == true)
+            if(Singleton_Skills_Manager.use.Active_skills_Warrior[i] == true)
             {
+                Active_skills_Warrior[i] = true;
                 all_active_buttons[i].GetComponent<Image>().sprite = all_active_images[i];
             }
             else
             {
+                Active_skills_Warrior[i] = false;
                 all_active_buttons[i].GetComponent<Image>().sprite = Default;
             }
-        }
-    }
-    private void Awake()
-    {
-        if (_use == null) //Singleton
-        {
-            Debug.Log("_Use = null");
-            _use = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Debug.Log("_Use != null");
-            Destroy(this);
         }
     }
 
     public void Active_SKill_Set(int ccount)
     {
-        
-        Debug.Log(ccount);
+        Singleton_Skills_Manager.use.Active_skills_Warrior[ccount] = true;
+        PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Active_skills_Warrior[ccount], 1);
         all_active_buttons[ccount].GetComponent<Image>().sprite = all_active_images[ccount];
     }
 }
