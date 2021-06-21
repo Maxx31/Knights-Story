@@ -10,7 +10,7 @@ public class Patrol : MonoBehaviour
     public bool Moving_Right;
     public Transform GFX;
     public float Stopping_Distanse;
-    public int position_Of_Patrol;
+    public float position_Of_Patrol;
 
     private float dirX;
     private Vector3 Local_Scale;

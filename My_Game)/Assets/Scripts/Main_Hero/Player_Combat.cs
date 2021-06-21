@@ -8,16 +8,21 @@ public class Player_Combat : MonoBehaviour
     public ParticleSystem Super;
     public ParticleSystem Super2;
     public Animator Anim;
-    public Transform Attack_Point;
+
+    [SerializeField]
+    private Transform Attack_Point;
+    [SerializeField]
+    private Transform Super_Attack_Point;
+
     public float attack_range_base;
     public LayerMask Enemy_Layer;
 
     private Fireball fireball;
     private Rain rain;
-    private float Attack_rate = 3f; 
-    private float Fireball_rate = 3f;
-    private float Rain_rate = 3f;
-    private float SupperAttack_rate = 3f;
+    private float Attack_rate = 2f; // Hits per second
+    private float Fireball_rate = 0.3f;
+    private float Rain_rate = 0.1f;
+    private float SupperAttack_rate = 1f;
     private float Damage = 25f;
     private Main_Hero m_h;
     private float Next_Attact_Time = 0f;
@@ -44,7 +49,7 @@ public class Player_Combat : MonoBehaviour
             if (CrossPlatformInputManager.GetButtonDown("attack"))
             {
                 Anim.SetTrigger("Attack");
-                Invoke("Attack_Call", 0.2f);
+                StartCoroutine(Attack_Call(false));
                 Next_Attact_Time = Time.time + 1f / Attack_rate;
             }
 
@@ -71,10 +76,8 @@ public class Player_Combat : MonoBehaviour
             }
             if (Time.time >= Next_SupperAttack_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[0] == true)
             {
-               Debug.Log(Skills_Manager.use.Active_skills_Warrior[0]);
                 if (CrossPlatformInputManager.GetButtonDown("Skill_1"))
                 {
-                    Debug.Log(Skills_Manager.use.Active_skills_Warrior[0]);
                     Anim.SetTrigger("Super_Attack");
                     Invoke("SupperAttack", 0.3f);
                     Next_Attact_Time = Time.time + 1f / Attack_rate;
@@ -91,14 +94,22 @@ public class Player_Combat : MonoBehaviour
         
         if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[0] == true)
         {
-            tDamage *= 1.5f;
+            tDamage *= 1.2f;
         }
             if (Super == true)
         {
-            tDamage *= 1.5f;
-            attack_range += 2.5f;
+            tDamage *= 1.45f;
+            attack_range += 0.5f;
         }
-       Collider2D[] Hit_Enemies = Physics2D.OverlapCircleAll(Attack_Point.position, attack_range, Enemy_Layer);
+        Collider2D[] Hit_Enemies;
+        if (Super == false)
+        {
+             Hit_Enemies = Physics2D.OverlapCircleAll(Attack_Point.position, attack_range, Enemy_Layer);
+        }
+        else
+        {
+            Hit_Enemies = Physics2D.OverlapCircleAll(Super_Attack_Point.position, attack_range, Enemy_Layer);
+        }
           foreach (Collider2D enemy in Hit_Enemies)
         {
             if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[2] == true)
@@ -188,12 +199,21 @@ public class Player_Combat : MonoBehaviour
         }
         Super.Emit(30);
         Super2.Emit(50);
-        
-        Attack(true);
+
+        StartCoroutine(Attack_Call(true));
     } 
-    private void Attack_Call()
+    IEnumerator Attack_Call(bool isSuper =false)
     {
-        Attack(false);
+       yield return new WaitForSeconds(0f);
+        if (isSuper)
+        {
+            Attack(true);
+        }
+        else
+        {
+            Attack(false);
+        }
+        yield return null;
     }
     private void OnDrawGizmosSelected()
     {

@@ -20,6 +20,15 @@ public class First_Skill : MonoBehaviour
     private bool is_taken = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        for (int i = 0; i < 9; i++)
+        {
+            if (Singleton_Skills_Manager.use.Passive_skills_Warrior[i] == 0) is_taken = true;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (Singleton_Skills_Manager.use.Active_PassiveSkills[i] == 0) is_taken = true;
+        }
         if (collision.CompareTag("Player") && is_taken == false)
         {
             {

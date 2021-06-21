@@ -32,7 +32,7 @@ public class Enemy_Purple_Ball : MonoBehaviour
     {
         if (collision.GetComponent<Main_Hero>() != null) //If our collision - main hero
         {
-            collision.GetComponent<Main_Hero>().Take_Damage(50);
+            collision.GetComponent<Main_Hero>().Take_Damage(20);
         }
         if (collision.tag != "Useless") //Useless is all the back, so our ball don't destray when hitting it.
         {

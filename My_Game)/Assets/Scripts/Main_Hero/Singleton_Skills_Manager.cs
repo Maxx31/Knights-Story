@@ -43,13 +43,11 @@ public class Singleton_Skills_Manager : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("FirstTime") == 0)
         {
-            Debug.Log("aga");
             PlayerPrefs.SetInt("FirstTime", 1);
             for (int i = 0; i < 10; i++)
             {
                 PlayerPrefs.SetInt(Str_Passive_skills_Warrior[i] , -1);
             }
-            Debug.Log(PlayerPrefs.GetInt(Str_Passive_skills_Warrior[1]));
             for (int i = 0; i < 3; i++)
             {
                PlayerPrefs.SetInt(Str_Active_PassiveSkills[i] , -1);
@@ -62,10 +60,8 @@ public class Singleton_Skills_Manager : MonoBehaviour
 
         if (_use == null) //Singleton
         {
-            Debug.Log("chi");
             for (int i = 0; i< 10; i++)
             {
-                Debug.Log(PlayerPrefs.GetInt(Str_Passive_skills_Warrior[i]));
                 Passive_skills_Warrior[i] = PlayerPrefs.GetInt(Str_Passive_skills_Warrior[i]);
             }
             for(int i = 0;i < 3; i++)

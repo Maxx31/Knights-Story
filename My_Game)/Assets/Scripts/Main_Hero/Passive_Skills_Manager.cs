@@ -40,7 +40,6 @@ public class Passive_Skills_Manager : MonoBehaviour
             if(Singleton_Skills_Manager.use.Passive_skills_Warrior[i] != -1)
             {
                 all[i] = Singleton_Skills_Manager.use.Passive_skills_Warrior[i];
-
                 all_buttons[i].GetComponent<Image>().sprite = all_images[Singleton_Skills_Manager.use.Passive_skills_Warrior[i]];
 
                 all_buttons[i].GetComponent<Image>().color = new Color(255, 255, 255);
@@ -48,7 +47,9 @@ public class Passive_Skills_Manager : MonoBehaviour
             else
             {
                 all_buttons[i].GetComponent<Image>().sprite = _default;
+                all[i] = Singleton_Skills_Manager.use.Passive_skills_Warrior[i];
             }
+            Skills_Manager.use.Passive_skills_Warrior[i] = Singleton_Skills_Manager.use.Passive_skills_Warrior[i];
         }
 
        for(int i = 0; i< 3; i++)
@@ -59,7 +60,7 @@ public class Passive_Skills_Manager : MonoBehaviour
                 Skills_Manager.use.Is_Enable_Passive_skills_Warrior[active[i]] = true;
                 if (active[i] == 1)
                 {
-                    main_Hero.GetComponent<Main_Hero>().Move_Speed += 5f; //Check
+                    main_Hero.GetComponent<Main_Hero>().Move_Speed += 2.5f; //Check
                 }
                 else if (active[i] == 4)
                 {
@@ -70,6 +71,7 @@ public class Passive_Skills_Manager : MonoBehaviour
             else
             {
                 Active_Buttons[i].GetComponent<Image>().sprite = _default;
+                active[i] = Singleton_Skills_Manager.use.Active_PassiveSkills[i];
             }
         }
     }
@@ -117,7 +119,7 @@ public class Passive_Skills_Manager : MonoBehaviour
             Skills_Manager.use.Is_Enable_Passive_skills_Warrior[active[ccount]] = false;
             if(active[ccount] == 1)
             {
-                main_Hero.GetComponent<Main_Hero>().Move_Speed -= 5f;
+                main_Hero.GetComponent<Main_Hero>().Move_Speed -= 2.5f;
             }
             else if (active[ccount] == 4)
             {
@@ -155,7 +157,7 @@ public class Passive_Skills_Manager : MonoBehaviour
         PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Is_Enable_Passive_skills_Warrior[active[ccount]],1);
         if (active[ccount] == 1)
         {
-            main_Hero.GetComponent<Main_Hero>().Move_Speed += 5f; //Check
+            main_Hero.GetComponent<Main_Hero>().Move_Speed += 2.5f; //Check
         }
         else if(active[ccount] == 4)
         {
