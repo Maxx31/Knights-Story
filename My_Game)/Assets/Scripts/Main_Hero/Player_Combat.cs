@@ -20,9 +20,9 @@ public class Player_Combat : MonoBehaviour
     private Fireball fireball;
     private Rain rain;
     private float Attack_rate = 2f; // Hits per second
-    private float Fireball_rate = 0.3f;
-    private float Rain_rate = 0.1f;
-    private float SupperAttack_rate = 1f;
+    private float Fireball_rate = 0.5f;
+    private float Rain_rate = 0.3f;
+    private float SupperAttack_rate = 1.2f;
     private float Damage = 25f;
     private Main_Hero m_h;
     private float Next_Attact_Time = 0f;
@@ -204,7 +204,8 @@ public class Player_Combat : MonoBehaviour
     } 
     IEnumerator Attack_Call(bool isSuper =false)
     {
-       yield return new WaitForSeconds(0f);
+        if(isSuper == false) 
+       yield return new WaitForSeconds(0.2f);
         if (isSuper)
         {
             Attack(true);
