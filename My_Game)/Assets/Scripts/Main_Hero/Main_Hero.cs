@@ -187,7 +187,6 @@ public class Main_Hero : MonoBehaviour
     {
         hp = Mathf.Min((health_to_add + hp), Max_health);
         SetHealth(hp, Max_health);
-        Debug.Log(hp);
     }
     public void SetHealth(float health, float maxHealth)
     {

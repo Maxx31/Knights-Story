@@ -37,9 +37,47 @@ public class Main_Menu : MonoBehaviour
 
     public void Reset()
     {
-        PlayerPrefs.SetInt("FirstTime", 0);
+        for (int i = 0; i < 10; i++)
+        {
+            PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Passive_skills_Warrior[i], -1);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Active_PassiveSkills[i], -1);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Active_skills_Warrior[i], 0);
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            Singleton_Skills_Manager.use.Passive_skills_Warrior[i] = PlayerPrefs.GetInt(Singleton_Skills_Manager.use.Str_Passive_skills_Warrior[i]);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            Singleton_Skills_Manager.use.Active_PassiveSkills[i] = PlayerPrefs.GetInt(Singleton_Skills_Manager.use.Str_Active_PassiveSkills[i]);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            Singleton_Skills_Manager.use.Active_skills_Warrior[i] = intToBool(PlayerPrefs.GetInt(Singleton_Skills_Manager.use.Str_Active_skills_Warrior[i]));
+        }
         level2B.interactable = false;
         level3B.interactable = false;
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("LevelComplete", 0);
+    }
+    int boolToInt(bool val)
+    {
+        if (val)
+            return 1;
+        else
+            return 0;
+    }
+
+    bool intToBool(int val)
+    {
+        if (val != 0)
+            return true;
+        else
+            return false;
     }
 }

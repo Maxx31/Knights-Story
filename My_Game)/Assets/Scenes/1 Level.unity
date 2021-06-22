@@ -422,6 +422,7 @@ RectTransform:
   m_Children:
   - {fileID: 502688191}
   - {fileID: 1093889969}
+  - {fileID: 1205328732}
   m_Father: {fileID: 848720485}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -532,6 +533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Passive_7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039581010323179032, guid: 53b744b68b8ee4b41a5468463f4c67df,
+        type: 3}
+      propertyPath: m_TagString
+      value: Useless
       objectReference: {fileID: 0}
     - target: {fileID: 2039581010323179034, guid: 53b744b68b8ee4b41a5468463f4c67df,
         type: 3}
@@ -2267,6 +2273,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Passive_2
       objectReference: {fileID: 0}
+    - target: {fileID: 7501005485713285261, guid: d6cdd52f5e011974ab641503317cf50e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Useless
+      objectReference: {fileID: 0}
     - target: {fileID: 7501005485713285263, guid: d6cdd52f5e011974ab641503317cf50e,
         type: 3}
       propertyPath: m_RootOrder
@@ -2353,6 +2364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Active_Skill (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235858796745211444, guid: d78acad5f7044594e8af8677662e7d3b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Useless
       objectReference: {fileID: 0}
     - target: {fileID: 8235858796745211448, guid: d78acad5f7044594e8af8677662e7d3b,
         type: 3}
@@ -3773,7 +3789,7 @@ RectTransform:
   m_GameObject: {fileID: 954501867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 3.1, z: 1}
+  m_LocalScale: {x: 0.8, y: 3.6, z: 1}
   m_Children: []
   m_Father: {fileID: 1748783472}
   m_RootOrder: 0
@@ -4862,6 +4878,86 @@ Transform:
   m_Father: {fileID: 1335587049}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1205328731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1205328732}
+  - component: {fileID: 1205328734}
+  - component: {fileID: 1205328733}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1205328732
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205328731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 127483993}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -491, y: 245}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1205328733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205328731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: e4b479d77db199243b63f7f54fe76d47, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 29
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 9
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Tap to your first available passive skill, \nand then tap to one of enabled
+    passive skills button"
+--- !u!222 &1205328734
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205328731}
+  m_CullTransparentMesh: 1
 --- !u!4 &1231934503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 670707776219228009, guid: 061fee44aae802948b46bdf0adbc0cf1,
@@ -6020,6 +6116,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3901950882573584201, guid: 4b9505e9e6e9c0645b0ba98d26e6b20f,
+        type: 3}
+      propertyPath: m_Text
+      value: All available passive skills
+      objectReference: {fileID: 0}
     - target: {fileID: 3901950882573584203, guid: 4b9505e9e6e9c0645b0ba98d26e6b20f,
         type: 3}
       propertyPath: m_Name
@@ -6149,6 +6250,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Active_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058315860061130247, guid: 1045735c0c64f8c4dbcf499279f4fbe7,
+        type: 3}
+      propertyPath: m_Text
+      value: Enabled Passive skills
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1045735c0c64f8c4dbcf499279f4fbe7, type: 3}
@@ -7498,6 +7604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4336618294309893988, guid: 889df8af2b6502c4e91813e4d8a2181b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Useless
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4336618294309893984, guid: 889df8af2b6502c4e91813e4d8a2181b, type: 3}

@@ -30,7 +30,6 @@ public class Passive_Skill : MonoBehaviour
         {
             if (Singleton_Skills_Manager.use.Active_PassiveSkills[i] == ccount) is_taken = true;
         }
-        Debug.Log(is_taken);
         if (collision.CompareTag("Player") && is_taken == false)
         {
             anim.SetTrigger("TextShow");

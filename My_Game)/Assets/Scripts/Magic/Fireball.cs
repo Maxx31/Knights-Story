@@ -39,7 +39,7 @@ public class Fireball : MonoBehaviour
             collision.GetComponent<Enemy>().Take_Damage(50);
         }
 
-        if (collision.tag != "Useless") {
+        if (collision.tag != "Useless" && collision.tag != "Player") {
             anim.SetTrigger("Explose");
             speed = 0;
             transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);

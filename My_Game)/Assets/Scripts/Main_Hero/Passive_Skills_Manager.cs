@@ -189,7 +189,6 @@ public class Passive_Skills_Manager : MonoBehaviour
         }
         if (total == 0)
         {
-            Debug.Log(total);
             Tutorial_Arrows.SetActive(true);
         }
         else
