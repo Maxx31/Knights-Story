@@ -124,3 +124,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   ccount: 7
+  anim: {fileID: 0}

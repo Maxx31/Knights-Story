@@ -21,6 +21,7 @@ public class Skills_Manager : MonoBehaviour
     public int[] Active_Button_Warrior = new int[3];
 
     public bool[] Active_skills_Warrior = new bool[3];
+    private AudioSource _skillTaken;
 
     [SerializeField]
     private List<Button> all_active_buttons;
@@ -42,6 +43,7 @@ public class Skills_Manager : MonoBehaviour
     private void Start()
     {
         _use = this;
+        _skillTaken = GetComponent<AudioSource>();
         for (int i = 0; i< 3; i++)
         {
             if(Singleton_Skills_Manager.use.Active_skills_Warrior[i] == true)
@@ -59,6 +61,7 @@ public class Skills_Manager : MonoBehaviour
 
     public void Active_SKill_Set(int ccount)
     {
+        _skillTaken.Play();
         Singleton_Skills_Manager.use.Active_skills_Warrior[ccount] = true;
         PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Active_skills_Warrior[ccount], 1);
         all_active_buttons[ccount].GetComponent<Image>().sprite = all_active_images[ccount];

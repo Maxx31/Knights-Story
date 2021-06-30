@@ -18,6 +18,7 @@ public class First_Skill : MonoBehaviour
     private float timeWhenDisappear;
     private Passive_Skills_Manager _manager;
     private bool is_taken = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         for (int i = 0; i < 9; i++)

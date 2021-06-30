@@ -30,12 +30,18 @@ public class Passive_Skills_Manager : MonoBehaviour
     [SerializeField]
     private GameObject Tutorial_Arrows;
 
+
+    private AudioSource _skillTakenSound;
+    private AudioSource _buttonClickSound;
+    [SerializeField, Header("1 Skill Take sound, 2 - Button Click sound")]
+    private AudioClip[] _audio;
     private int total = 0;
     private int current_num = -1;
 
     private void Start()
     {
-       for(int i = 0; i< passive_skills_count; i++)
+        AudioSet();
+        for (int i = 0; i< passive_skills_count; i++)
         {
             if(Singleton_Skills_Manager.use.Passive_skills_Warrior[i] != -1)
             {
@@ -81,6 +87,7 @@ public class Passive_Skills_Manager : MonoBehaviour
         {
             if (all[i] == -1)
             {
+                _skillTakenSound.Play();
                 all_buttons[i].GetComponent<Image>().sprite = all_images[ccount];
                 all[i] = ccount;
                 Singleton_Skills_Manager.use.Passive_skills_Warrior[i] = ccount;
@@ -92,6 +99,7 @@ public class Passive_Skills_Manager : MonoBehaviour
     }
     public void All_Button(int ccount)
     {
+        _buttonClickSound.Play();
         if (all[ccount] == -1) return;
         if (current_num != -1)
         {
@@ -105,6 +113,7 @@ public class Passive_Skills_Manager : MonoBehaviour
     }
     public void Active_Button(int ccount)
     {
+        _buttonClickSound.Play();
         if (current_num == -1)
         {
             if(active[ccount] != -1)
@@ -167,6 +176,7 @@ public class Passive_Skills_Manager : MonoBehaviour
 
     public void Exit_Menu()
     {
+        _buttonClickSound.Play();
         Time.timeScale = 1f;
         chosen_button_description.text = "";
         chosen_button.GetComponent<Image>().sprite = _default;
@@ -180,6 +190,7 @@ public class Passive_Skills_Manager : MonoBehaviour
 
     public void Call_Menu()
     {
+        _buttonClickSound.Play();
         Time.timeScale = 0f;
         passive_menu.SetActive(true);
         int total = 0;
@@ -231,4 +242,15 @@ public class Passive_Skills_Manager : MonoBehaviour
         }
     }
 
+    private void AudioSet()
+    {
+        _skillTakenSound = gameObject.AddComponent<AudioSource>();
+        _skillTakenSound.playOnAwake = false;
+        _skillTakenSound.clip = _audio[0];
+
+        _buttonClickSound = gameObject.AddComponent<AudioSource>();
+        _buttonClickSound.playOnAwake = false;
+        _buttonClickSound.clip = _audio[1];
+
+    }
 }

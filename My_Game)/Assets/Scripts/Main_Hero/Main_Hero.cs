@@ -23,6 +23,12 @@ public class Main_Hero : MonoBehaviour
     private Vector3 Local_Scale;
     private Animator anim;
     private float hp;
+
+    private AudioSource _runSound;
+    private AudioSource _jumpingSound;
+    private AudioSource _damageTakeSound;
+    [SerializeField , Header("1 - Run, 2 - Jump 3- Damage Taken")]
+    private AudioClip[] _audio;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -32,6 +38,7 @@ public class Main_Hero : MonoBehaviour
     }
     void Start()
     {
+        AudioLoad();
         armor_Rate = 55;
         Local_Scale = transform.localScale;
       
@@ -48,20 +55,25 @@ public class Main_Hero : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("Jump") && (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true ||  Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true )&& rb.velocity.y != 0 && double_Jump == true)
         {
             double_Jump = false;
+            _jumpingSound.Play();
             rb.AddForce(Vector2.up * 560f);
         }
         if (CrossPlatformInputManager.GetButtonDown("Jump") && rb.velocity.y == 0)
-        {      
+        {
+            _jumpingSound.Play();
             rb.AddForce(Vector2.up * 700f);
 
         }
 
         if(Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
         {
+            if(!_runSound.isPlaying)
+            _runSound.Play();
             anim.SetBool("Is_Running", true);
         }
         else
         {
+            _runSound.Stop();
             anim.SetBool("Is_Running", false);
         }
 
@@ -143,10 +155,7 @@ public class Main_Hero : MonoBehaviour
 
     public void Take_Damage(float damage)
     {
-        //Debug.Log("Damage = " + damage);
-
-      //  if (hp - damage <= 0) return;
-
+ 
         float Armor_Boost = 0f;
         if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[6] == true)
         {
@@ -170,6 +179,7 @@ public class Main_Hero : MonoBehaviour
         if (Dodged == false)
         {
             damage -= ( (armor_Rate + Armor_Boost) * damage) / 100; //Armor influence
+            _damageTakeSound.Play();
             hp -= damage;
         }
         else
@@ -203,5 +213,20 @@ public class Main_Hero : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
+    private void AudioLoad()
+    {
+        _runSound = gameObject.AddComponent<AudioSource>();
+        _runSound.playOnAwake = false;
+        _runSound.clip = _audio[0];
+
+        _jumpingSound = gameObject.AddComponent<AudioSource>();
+        _jumpingSound.playOnAwake = false;
+        _jumpingSound.clip = _audio[1];
+        _jumpingSound.volume = 0.8f;
+
+        _damageTakeSound = gameObject.AddComponent<AudioSource>();
+        _damageTakeSound.playOnAwake = false;
+        _damageTakeSound.clip = _audio[2];
+    }
 
 }

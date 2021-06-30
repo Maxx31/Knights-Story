@@ -15,8 +15,11 @@ public class Fireball : MonoBehaviour
     private ParticleSystem part;
 
     private float liveTime;
+
+    private AudioSource _fireballExplosionSound;
     private void Awake()
     {
+        _fireballExplosionSound = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         part = GetComponentInChildren<ParticleSystem>();
         liveTime = 2.5f;
@@ -40,6 +43,8 @@ public class Fireball : MonoBehaviour
         }
 
         if (collision.tag != "Useless" && collision.tag != "Player") {
+            if(!_fireballExplosionSound.isPlaying)
+            _fireballExplosionSound.Play();
             anim.SetTrigger("Explose");
             speed = 0;
             transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);

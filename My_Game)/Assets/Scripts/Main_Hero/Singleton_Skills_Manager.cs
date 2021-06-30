@@ -75,7 +75,6 @@ public class Singleton_Skills_Manager : MonoBehaviour
 
         if (_use == null) //Singleton
         {
-            Debug.Log("Aga");
             for (int i = 0; i< 10; i++)
             {
                 Passive_skills_Warrior[i] = PlayerPrefs.GetInt(Str_Passive_skills_Warrior[i]);

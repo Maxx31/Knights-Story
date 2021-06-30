@@ -15,6 +15,8 @@ public class Passive_Skill : MonoBehaviour
     private Passive_Skills_Manager _manager;
 
     private bool is_taken = false;
+
+
     private void Start()
     {
         _manager = manager.GetComponent<Passive_Skills_Manager>();

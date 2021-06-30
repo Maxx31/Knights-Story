@@ -19,16 +19,22 @@ public class Player_Combat : MonoBehaviour
 
     private Fireball fireball;
     private Rain rain;
-    private float Attack_rate = 2f; // Hits per second
+    private float _attackRate = 2f; // Hits per second
     private float Fireball_rate = 0.5f;
     private float Rain_rate = 0.3f;
     private float SupperAttack_rate = 1.2f;
     private float Damage = 25f;
     private Main_Hero m_h;
-    private float Next_Attact_Time = 0f;
-    private float Next_FireBall_Time = 0f;
-    private float Next_Rain_Time = 0f;
-    private float Next_SupperAttack_Time = 0f;
+    private float _nextAttackTime = 0f;
+    private float _nextFireballTime = 0f;
+    private float _nextRainTime = 0f;
+    private float _nextSuperAtackTime = 0f;
+    private AudioSource _swordAttackSound;
+    private AudioSource _fireballCastSound;
+    private AudioSource _superSwordAttackSound;
+    private AudioSource _rainCastSound;
+    [SerializeField, Header("1- Sword Attack 2 - Fire Ball Cast, 3 - Sword Hit 4 - Rain")]
+    private AudioClip[] _audio;
 
     private void Awake()
     { 
@@ -37,51 +43,56 @@ public class Player_Combat : MonoBehaviour
     }
     private void Start()
     {
-        m_h = GetComponent<Main_Hero>();
+        AudioSet();
+       m_h = GetComponent<Main_Hero>();
 
     }
 
 
     void Update()
     {
-        if (Time.time >= Next_Attact_Time)
+        if (Time.time >= _nextAttackTime)
         {
             if (CrossPlatformInputManager.GetButtonDown("attack"))
             {
+                _swordAttackSound.Play();
                 Anim.SetTrigger("Attack");
                 StartCoroutine(Attack_Call(false));
-                Next_Attact_Time = Time.time + 1f / Attack_rate;
+                _nextAttackTime = Time.time + 1f / _attackRate;
             }
 
-            if(Time.time >= Next_FireBall_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[1] == true)
+            if(Time.time >= _nextFireballTime && Time.time >= _nextAttackTime && Skills_Manager.use.Active_skills_Warrior[1] == true)
             {
                 if (CrossPlatformInputManager.GetButtonDown("Skill_2"))
                 {
+                    _fireballCastSound.Play();
                     Anim.SetTrigger("Casting");
                     Invoke("Shoot_Fireball", 0.3f);
-                    Next_Attact_Time = Time.time + 1f / Attack_rate;
-                    Next_FireBall_Time = Time.time + 1f / Fireball_rate;
+                    _nextAttackTime = Time.time + 1f / _attackRate;
+                    _nextFireballTime = Time.time + 1f / Fireball_rate;
                 }
             }
-             if (Time.time >= Next_Rain_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[2] == true)
+             if (Time.time >= _nextRainTime && Time.time >= _nextAttackTime && Skills_Manager.use.Active_skills_Warrior[2] == true)
             {
 
                 if (CrossPlatformInputManager.GetButtonDown("Skill_3"))
                 {
+                    _rainCastSound.Play();
                     Anim.SetTrigger("Casting");
                     Invoke("Shoot_Rain", 0.3f);
-                    Next_Attact_Time = Time.time + 1f / Attack_rate;
-                    Next_Rain_Time = Time.time + 1f / Rain_rate;
+                    _nextAttackTime = Time.time + 1f / _attackRate;
+                    _nextRainTime = Time.time + 1f / Rain_rate;
                 }
             }
-            if (Time.time >= Next_SupperAttack_Time && Time.time >= Next_Attact_Time && Skills_Manager.use.Active_skills_Warrior[0] == true)
+            if (Time.time >= _nextSuperAtackTime && Time.time >= _nextAttackTime && Skills_Manager.use.Active_skills_Warrior[0] == true)
             {
                 if (CrossPlatformInputManager.GetButtonDown("Skill_1"))
                 {
+                            _superSwordAttackSound.Play();
                     Anim.SetTrigger("Super_Attack");
                     Invoke("SupperAttack", 0.3f);
-                    Next_Attact_Time = Time.time + 1f / Attack_rate;
-                    Next_SupperAttack_Time = Time.time + 1f / SupperAttack_rate;
+                    _nextAttackTime = Time.time + 1f / _attackRate;
+                    _nextSuperAtackTime = Time.time + 1f / SupperAttack_rate;
                 }
             }
         }
@@ -187,6 +198,7 @@ public class Player_Combat : MonoBehaviour
     {
         var sh = Super.shape;
         var sh2 = Super2.shape;
+
         if (m_h.Facing_Right == false)
         {
             sh.scale = new Vector3(-1, 1, 1);
@@ -204,8 +216,9 @@ public class Player_Combat : MonoBehaviour
     } 
     IEnumerator Attack_Call(bool isSuper =false)
     {
-        if(isSuper == false) 
+        if (isSuper == false) 
        yield return new WaitForSeconds(0.2f);
+
         if (isSuper)
         {
             Attack(true);
@@ -224,5 +237,25 @@ public class Player_Combat : MonoBehaviour
         Gizmos.DrawWireSphere(Attack_Point.position, attack_range_base);
     }
 
- 
+  private void AudioSet()
+    {
+        _swordAttackSound = gameObject.AddComponent<AudioSource>();
+        _swordAttackSound.playOnAwake = false;
+        _swordAttackSound.clip = _audio[0];
+        _swordAttackSound.volume = 0.65f;
+
+        _fireballCastSound = gameObject.AddComponent<AudioSource>();
+        _fireballCastSound.playOnAwake = false;
+        _fireballCastSound.clip = _audio[1];   
+
+         _superSwordAttackSound = gameObject.AddComponent<AudioSource>();
+        _superSwordAttackSound.playOnAwake = false;
+        _superSwordAttackSound.clip = _audio[2];
+        _superSwordAttackSound.volume = 0.7f;
+
+        _rainCastSound = gameObject.AddComponent<AudioSource>();
+        _rainCastSound.playOnAwake = false;
+        _rainCastSound.clip = _audio[3];
+
+    }
 }

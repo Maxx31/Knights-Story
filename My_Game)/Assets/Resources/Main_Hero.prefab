@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &659747798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 659747799}
+  m_Layer: 0
+  m_Name: Super_Attack_Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &659747799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659747798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.59, y: -0.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 670707776219228009}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &670707775733404132
 GameObject:
   m_ObjectHideFlags: 0
@@ -9792,7 +9822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670707776071806005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: -0.68, z: 0}
+  m_LocalPosition: {x: 0.617, y: -0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 670707776219228009}
@@ -9835,6 +9865,7 @@ Transform:
   m_Children:
   - {fileID: 670707776071806002}
   - {fileID: 670707776716674833}
+  - {fileID: 659747799}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9902,7 +9933,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.064641654, y: -0.6327772}
+  m_Offset: {x: 0.064641654, y: -0.6369077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9913,7 +9944,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.58666366, y: 1.1746302}
+  m_Size: {x: 0.58666366, y: 1.1828911}
   m_EdgeRadius: 0
 --- !u!50 &670707776219228010
 Rigidbody2D:
@@ -9948,13 +9979,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed1955f4cf62fe438995558789c5922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Move_Speed: 15
+  Move_Speed: 11
   Facing_Right: 0
   slider: {fileID: 0}
   Offset: {x: 0, y: 0, z: 0}
   Max_health: 100
   Low: {r: 1, g: 0, b: 0, a: 1}
   High: {r: 0.14150456, g: 0.9056604, b: 0.071769245, a: 1}
+  _audio:
+  - {fileID: 8300000, guid: 67a4f8a89bb54504d956e3f057556b5f, type: 3}
+  - {fileID: 8300000, guid: 30f7b9185d8374a49b4ef857b61d0b26, type: 3}
+  - {fileID: 8300000, guid: 121dec9a1d3e5434b853aa964a3e052c, type: 3}
 --- !u!68 &670707776219228012
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -9971,8 +10006,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.3847446, y: -0.09856199}
-  - {x: 0.38424253, y: -1.1756386}
+  - {x: 0.3847446, y: 0.07838975}
+  - {x: 0.37512025, y: -1.1255773}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -9993,8 +10028,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.25979853, y: -1.1852255}
-  - {x: -0.2554196, y: -0.09127881}
+  - {x: -0.24602418, y: -1.0978252}
+  - {x: -0.24146342, y: 0.0940993}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -10034,10 +10069,16 @@ MonoBehaviour:
   Super2: {fileID: 670707775733404133}
   Anim: {fileID: 670707776219228014}
   Attack_Point: {fileID: 670707776071806002}
+  Super_Attack_Point: {fileID: 659747799}
   attack_range_base: 1.6
   Enemy_Layer:
     serializedVersion: 2
     m_Bits: 256
+  _audio:
+  - {fileID: 8300000, guid: 9bb43196a1645a741897a3464d1d8e1a, type: 3}
+  - {fileID: 8300000, guid: ae13a8b06b965ee498c17c2cef2d38a3, type: 3}
+  - {fileID: 8300000, guid: 6ac7204891885184baaec0e0aeab3d37, type: 3}
+  - {fileID: 8300000, guid: 85b438e63378d7a4aa524777eaafdfe5, type: 3}
 --- !u!1 &670707776716674832
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   ccount: 3
+  anim: {fileID: 0}
 --- !u!61 &3915405016375703959
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11,8 +11,10 @@ public class Main_Menu : MonoBehaviour
     [SerializeField]
     private Button level3B;
     private int levelComplete;
+    AudioSource click;
     void Start()
     {
+        click = gameObject.GetComponent<AudioSource>();
         levelComplete = PlayerPrefs.GetInt("LevelComplete");
         level2B.interactable = false;
         level3B.interactable = false;
@@ -32,11 +34,13 @@ public class Main_Menu : MonoBehaviour
 
     public void LoatTo(int level)
     {
+        click.Play();
         SceneManager.LoadScene(level);
     }
 
     public void Reset()
     {
+        click.Play();
         for (int i = 0; i < 10; i++)
         {
             PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Passive_skills_Warrior[i], -1);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7501005485713285262}
   m_Layer: 0
   m_Name: Passive_2
-  m_TagString: Untagged
+  m_TagString: Useless
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   ccount: 1
+  anim: {fileID: 0}
 --- !u!61 &7501005485713285262
 BoxCollider2D:
   m_ObjectHideFlags: 0
