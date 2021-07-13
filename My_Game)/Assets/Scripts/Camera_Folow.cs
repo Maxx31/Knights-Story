@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Camera_Folow : MonoBehaviour
 {
-    public Transform Target;
-    public float Smooth = 12.0f;
-    public Vector3 Offset = new Vector3(0, 0, 0);
+    [SerializeField]
+    private Transform _target;
+    [SerializeField]
+    private float _smooth;
 
-   private void Update()
+    public Vector3 _offset = new Vector3(0, 0, 0);
+     
+  
+    private void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, Target.position + Offset, Time.deltaTime * Smooth);
+        
+        transform.position = Vector3.Lerp(transform.position, _target.position + _offset, Time.deltaTime * _smooth );
     }
 }

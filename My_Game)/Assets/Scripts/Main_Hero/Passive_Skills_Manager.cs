@@ -188,6 +188,11 @@ public class Passive_Skills_Manager : MonoBehaviour
 
     }
 
+    public void Exit_To_MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
     public void Call_Menu()
     {
         _buttonClickSound.Play();

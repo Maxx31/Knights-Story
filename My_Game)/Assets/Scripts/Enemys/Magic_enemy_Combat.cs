@@ -51,11 +51,11 @@ public class Magic_enemy_Combat : MonoBehaviour
 
         if (patrol.Moving_Right == false)
         {
-            position.x -= 1.3f;//Starting point of mage ball
+            position.x -= 1.1f;//Starting point of mage ball
         }
         else
         {
-            position.x += 1.3f;//Starting point of mage ball
+            position.x += 1.1f;//Starting point of mage ball
         }
 
         position.y -= 0.1f;

@@ -13,6 +13,8 @@ public class Rain : MonoBehaviour
     private ParticleSystem part;
 
     private float liveTime;
+
+    private AudioSource _rainExplosion;
     private void Awake()
     {
          part = GetComponentInChildren<ParticleSystem>();
@@ -22,6 +24,7 @@ public class Rain : MonoBehaviour
 
     private void Start()
     {
+        _rainExplosion = GetComponent<AudioSource>();
         Destroy(gameObject, liveTime);
         rb.velocity = new Vector2(is_Right, rb.velocity.y);
     }
@@ -31,7 +34,9 @@ public class Rain : MonoBehaviour
         if (collision.GetComponent<Enemy>() != null)
             collision.GetComponent<Enemy>().Take_Damage(30);
         if (collision.tag != "Useless")
-        {      
+        {
+            if(!_rainExplosion.isPlaying)
+            _rainExplosion.Play();
             rb.isKinematic = true;
             rb.velocity = Vector3.zero;
 
@@ -39,7 +44,8 @@ public class Rain : MonoBehaviour
             {
                 part.Play();
             }
-            Destroy(gameObject , 0.42f);
+            
+            Destroy(gameObject ,0.75f);
         }
     }
 }

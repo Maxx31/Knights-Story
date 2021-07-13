@@ -13,11 +13,24 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private Health_Bar healthbar;
+
+
+    private enum monsterType { Goblin, Magic };
+    [SerializeField]
+    private monsterType _monsterType;
+
+
     private float current_Healh;
     private Rigidbody2D rb;
-    
+
+    private AudioSource _goblinDieSound;
+    private AudioSource _magicDieSound;
+
+    [SerializeField, Header("1 - Goblin death, 2 - Magic death")]
+    private AudioClip[] _audio;
     private void Start()
     {
+        AudioLoad();
         rb = GetComponent<Rigidbody2D>();
         current_Healh = Max_Health;
         healthbar.SetHealth(current_Healh, Max_Health);
@@ -40,7 +53,13 @@ public class Enemy : MonoBehaviour
         {
 
             healthbar.SetHealth(Max_Health, Max_Health);
-
+            if(_monsterType == monsterType.Goblin)
+            {
+                _goblinDieSound.Play();
+            }
+            else if(_monsterType == monsterType.Magic){
+                _magicDieSound.Play();
+            }
             anim.SetTrigger("Death");
             Dead = true;
             //Stop any movement
@@ -73,5 +92,14 @@ public class Enemy : MonoBehaviour
 
         rb.AddForce(Vector2.up * 600f);
     }
+    private void AudioLoad()
+    {
+         _goblinDieSound = gameObject.AddComponent<AudioSource>();
+        _goblinDieSound.playOnAwake = false;
+        _goblinDieSound.clip = _audio[0];
 
+        _magicDieSound = gameObject.AddComponent<AudioSource>();
+        _magicDieSound.playOnAwake = false;
+        _magicDieSound.clip = _audio[1];
+    }
 }

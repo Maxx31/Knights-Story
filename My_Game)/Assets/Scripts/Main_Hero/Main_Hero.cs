@@ -7,14 +7,21 @@ using UnityEngine.SceneManagement;
 public class Main_Hero : MonoBehaviour
 {
     public float Move_Speed;
+    public float JumpPower;
     public bool Facing_Right;
     public Slider slider;
     public Vector3 Offset;
     public float Max_health;
+
+
     [SerializeField]
     private Color Low;
     [SerializeField]
     private Color High;
+
+    [SerializeField]
+    private GameObject _camera;
+    private Camera_Folow _cameraSkript;
 
     private bool double_Jump = true;
     private float armor_Rate;
@@ -27,7 +34,8 @@ public class Main_Hero : MonoBehaviour
     private AudioSource _runSound;
     private AudioSource _jumpingSound;
     private AudioSource _damageTakeSound;
-    [SerializeField , Header("1 - Run, 2 - Jump 3- Damage Taken")]
+    private AudioSource _healthPotion;
+    [SerializeField , Header("4 - Health Potion"), Header("1 - Run, 2 - Jump 3 - Damage Taken")]
     private AudioClip[] _audio;
     private void Awake()
     {
@@ -38,6 +46,7 @@ public class Main_Hero : MonoBehaviour
     }
     void Start()
     {
+        _cameraSkript = _camera.GetComponent<Camera_Folow>();
         AudioLoad();
         armor_Rate = 55;
         Local_Scale = transform.localScale;
@@ -52,16 +61,24 @@ public class Main_Hero : MonoBehaviour
             double_Jump = true;
 
         }
-        if (CrossPlatformInputManager.GetButtonDown("Jump") && (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true ||  Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true )&& rb.velocity.y != 0 && double_Jump == true)
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true || Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true) && rb.velocity.y != 0 && double_Jump == true)
         {
-            double_Jump = false;
             _jumpingSound.Play();
-            rb.AddForce(Vector2.up * 560f);
+            if (double_Jump == false)
+            {
+                rb.AddForce(Vector2.up * 560f);
+            }
+            else
+            {
+                rb.AddForce(Vector2.up * (JumpPower / 1.5f) ); //For jump from sand
+            }
+            double_Jump = false;
         }
         if (CrossPlatformInputManager.GetButtonDown("Jump") && rb.velocity.y == 0)
         {
+            Debug.Log("Dt");
             _jumpingSound.Play();
-            rb.AddForce(Vector2.up * 700f);
+            rb.AddForce(Vector2.up * JumpPower);
 
         }
 
@@ -102,10 +119,14 @@ public class Main_Hero : MonoBehaviour
     {
         if(dirX > 0)
         {
+            if (_cameraSkript._offset.x < 0)
+            _cameraSkript._offset.x *= -1;
             Facing_Right = true;
         }
         else if (dirX < 0)
         {
+            if (_cameraSkript._offset.x > 0)
+               _cameraSkript._offset.x *= -1;
             Facing_Right = false;
         }
 
@@ -115,17 +136,11 @@ public class Main_Hero : MonoBehaviour
         transform.localScale = Local_Scale;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision) // Bad idea, need fix
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
             transform.parent = collision.gameObject.transform;
-        }
-        if (collision.gameObject.CompareTag("Mace"))
-        {
-           // Vector3 dir = (Vector3)collision.contacts[0].point - transform.position;
-           // dir = -dir.normalized;
-           // rb.AddForce(dir * 100, ForceMode2D.Impulse);
         }
     }
 
@@ -195,6 +210,7 @@ public class Main_Hero : MonoBehaviour
 
     public void AddHealth(float health_to_add)
     {
+        _healthPotion.Play();
         hp = Mathf.Min((health_to_add + hp), Max_health);
         SetHealth(hp, Max_health);
     }
@@ -227,6 +243,10 @@ public class Main_Hero : MonoBehaviour
         _damageTakeSound = gameObject.AddComponent<AudioSource>();
         _damageTakeSound.playOnAwake = false;
         _damageTakeSound.clip = _audio[2];
+
+        _healthPotion = gameObject.AddComponent<AudioSource>();
+        _healthPotion.playOnAwake = false;
+        _healthPotion.clip = _audio[3];
     }
 
 }

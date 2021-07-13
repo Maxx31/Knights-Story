@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Begin_Menu: MonoBehaviour
 {
-    AudioSource click;
+    private AudioSource click;
 
     private void Start()
     {
@@ -13,9 +13,19 @@ public class Begin_Menu: MonoBehaviour
     }
     public void LoatTo(int level)
     {
-        Debug.Log("aga");
+       // Debug.Log("aga");
         if (!click.isPlaying)
             click.Play();
         SceneManager.LoadScene(level);
+    }
+
+    public void AppQuick()
+    {
+        if (!click.isPlaying)
+        {
+            click.Play();
+        }
+        Debug.Log("Quit");
+        Application.Quit();
     }
 }

@@ -4867,8 +4867,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9752,7 +9751,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 47eb3fdd01eb327428cfafbefee8f3bc, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9908,7 +9906,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 53
   m_Sprite: {fileID: 21300000, guid: 84ce2f114ad12bd4ebafc77060220324, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9980,16 +9978,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Move_Speed: 11
+  JumpPower: 720
   Facing_Right: 0
   slider: {fileID: 0}
   Offset: {x: 0, y: 0, z: 0}
-  Max_health: 100
+  Max_health: 120
   Low: {r: 1, g: 0, b: 0, a: 1}
   High: {r: 0.14150456, g: 0.9056604, b: 0.071769245, a: 1}
+  _camera: {fileID: 0}
   _audio:
   - {fileID: 8300000, guid: 67a4f8a89bb54504d956e3f057556b5f, type: 3}
   - {fileID: 8300000, guid: 30f7b9185d8374a49b4ef857b61d0b26, type: 3}
   - {fileID: 8300000, guid: 121dec9a1d3e5434b853aa964a3e052c, type: 3}
+  - {fileID: 8300000, guid: bb64a01daaef7e3419163c39984671c7, type: 3}
 --- !u!68 &670707776219228012
 EdgeCollider2D:
   m_ObjectHideFlags: 0
