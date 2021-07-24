@@ -4,18 +4,33 @@ using UnityEngine;
 
 public class Saw : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField , Tooltip("Damage per second")]
     private float damage;
-    [SerializeField]
-    private float force_repulsion;
-    [SerializeField]
-    private float knock_Duration;
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private AudioSource _sawSound;
+
+
+    private void Awake()
     {
-        if(collision.gameObject.GetComponent<Main_Hero>() != null)
+        _sawSound = GetComponent<AudioSource>();
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(_sawSound.isPlaying == false)
         {
-            StartCoroutine(collision.gameObject.GetComponent<Main_Hero>().KnockBack(knock_Duration, force_repulsion, this.transform));
-            collision.gameObject.GetComponent<Main_Hero>().Take_Damage(damage);
+            _sawSound.Play();
         }
+        if (collision.gameObject.GetComponent<Main_Hero>() != null)
+        {
+            collision.gameObject.GetComponent<Main_Hero>().Mace_Damage(damage);
+        }
+        else if (collision.gameObject.GetComponent<Enemy>() != null)
+        {
+            collision.gameObject.GetComponent<Enemy>().Take_Damage(damage);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        _sawSound.Stop();
     }
 }

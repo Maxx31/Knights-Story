@@ -43,6 +43,6 @@ public class Level_Controller : MonoBehaviour
 
     void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 }

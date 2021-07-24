@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private monsterType _monsterType;
 
+    [SerializeField]
+    private float _jumpPower = 600f;
 
     private float current_Healh;
     private Rigidbody2D rb;
@@ -90,7 +92,7 @@ public class Enemy : MonoBehaviour
    public void Jump()
     {
 
-        rb.AddForce(Vector2.up * 600f);
+        rb.AddForce(Vector2.up * _jumpPower);
     }
     private void AudioLoad()
     {

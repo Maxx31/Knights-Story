@@ -43,7 +43,6 @@ public class Singleton_Skills_Manager : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("FirstTime") == 0)
         {
-            Debug.Log("Why");
             PlayerPrefs.SetInt("FirstTime", 1);
             for (int i = 0; i < 10; i++)
             {

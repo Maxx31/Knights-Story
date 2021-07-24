@@ -10,5 +10,9 @@ public class Death_Block : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")){
             SceneManager.LoadScene(4);
         }
+        else if(collision.gameObject.GetComponent<Enemy>() != null)
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

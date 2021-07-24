@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Enemy_Purple_Ball : MonoBehaviour
 {
+
+    public float Damage;
+
     private float speed = 10f;
-
     private Vector3 direction;
-
     public Vector3 Direction { set { direction = value; } }
 
     private float liveTime;
@@ -36,7 +37,7 @@ public class Enemy_Purple_Ball : MonoBehaviour
         {
             if (_isUsed == false)
             {
-                collision.GetComponent<Main_Hero>().Take_Damage(35);
+                collision.GetComponent<Main_Hero>().Take_Damage(Damage);
                 _isUsed = true;
             }
         }

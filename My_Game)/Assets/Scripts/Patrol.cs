@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
@@ -9,11 +7,12 @@ public class Patrol : MonoBehaviour
     public Transform point;
     public bool Moving_Right;
     public Transform GFX;
-    public float Stopping_Distanse;
+
+    [SerializeField , Tooltip("Stop chasing distance")]
+    private float _stoppingDistanse;
     public float position_Of_Patrol;
 
-    private float dirX;
-    private Vector3 Local_Scale;
+    private Vector3 _localScale;
     private Rigidbody2D rb;
     private Transform player;
     private bool chill = false;
@@ -22,7 +21,7 @@ public class Patrol : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        Local_Scale = transform.localScale;
+        _localScale = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -33,14 +32,14 @@ public class Patrol : MonoBehaviour
             chill = true;
         }
 
-        if(Vector2.Distance(transform.position , player.position) < Stopping_Distanse)
+        if(Vector2.Distance(transform.position , player.position) < _stoppingDistanse)
         {
             angry = true;
             chill = false;
             go_back = false;
         }
 
-        if (Vector2.Distance(transform.position, player.position) > Stopping_Distanse)
+        if (Vector2.Distance(transform.position, player.position) > _stoppingDistanse)
         {
             go_back = true;
             angry = false;

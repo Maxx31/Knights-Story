@@ -21,18 +21,9 @@ public class First_Skill : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 0; i < 9; i++)
+        if (collision.CompareTag("Player"))
         {
-            if (Singleton_Skills_Manager.use.Passive_skills_Warrior[i] == 0) is_taken = true;
-        }
-
-        for (int i = 0; i < 3; i++)
-        {
-            if (Singleton_Skills_Manager.use.Active_PassiveSkills[i] == 0) is_taken = true;
-        }
-        if (collision.CompareTag("Player") && is_taken == false)
-        {
-            {
+           if(is_taken == false) {
                 arrow.SetActive(true);
                 timeWhenDisappear = Time.time + timeToAppear;
                 _manager.Add_Skill(0);
@@ -46,6 +37,19 @@ public class First_Skill : MonoBehaviour
 
     private void Start()
     {
+        for (int i = 0; i < 9; i++)
+        {
+            if (Singleton_Skills_Manager.use.Passive_skills_Warrior[i] == 0) is_taken = true;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (Singleton_Skills_Manager.use.Active_PassiveSkills[i] == 0) is_taken = true;
+        }
+        if(is_taken == true)
+        {
+            Destroy(this.gameObject);
+        }
         _manager = manager.GetComponent<Passive_Skills_Manager>();
     }
     private void Update()

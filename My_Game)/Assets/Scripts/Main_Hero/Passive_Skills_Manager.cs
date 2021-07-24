@@ -40,6 +40,10 @@ public class Passive_Skills_Manager : MonoBehaviour
 
     private void Start()
     {
+        if(Skills_Manager.use == null)
+        {
+            Debug.Log("Bad");
+        }
         AudioSet();
         for (int i = 0; i< passive_skills_count; i++)
         {
@@ -83,6 +87,7 @@ public class Passive_Skills_Manager : MonoBehaviour
     }
     public void Add_Skill(int ccount)
     {
+        Debug.Log("Added");
         for (int i = 0; i < passive_skills_count; i++)
         {
             if (all[i] == -1)

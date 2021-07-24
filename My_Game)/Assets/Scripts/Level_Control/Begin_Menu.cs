@@ -67,6 +67,7 @@ public class Begin_Menu: MonoBehaviour
 
     public void SetVolume(float volume)
     {
+        if(_backMusic != null)
         _backMusic.volume = volume;
     }
 }

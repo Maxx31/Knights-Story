@@ -10,13 +10,12 @@ public class Main_Hero : MonoBehaviour
     public float JumpPower;
     public bool Facing_Right;
     public Slider slider;
-    public Vector3 Offset;
     public float Max_health;
 
 
-    [SerializeField]
+    [SerializeField,Tooltip("Low hp color")]
     private Color Low;
-    [SerializeField]
+    [SerializeField, Tooltip("High hp color")]
     private Color High;
 
     [SerializeField]
@@ -76,7 +75,6 @@ public class Main_Hero : MonoBehaviour
         }
         if (CrossPlatformInputManager.GetButtonDown("Jump") && rb.velocity.y == 0)
         {
-            Debug.Log("Dt");
             _jumpingSound.Play();
             rb.AddForce(Vector2.up * JumpPower);
 
@@ -208,6 +206,27 @@ public class Main_Hero : MonoBehaviour
         SetHealth(hp, Max_health);
     }
 
+    public void Mace_Damage(float damage)
+    {
+        float Armor_Boost = 0f;
+        if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[6] == true)
+        {
+            Armor_Boost += 15f;
+        }
+        if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true)
+        {
+            Armor_Boost += 9f;
+        }
+
+        damage -= ((armor_Rate + Armor_Boost) * damage) / 100; //Armor influence
+         hp -= damage;
+
+        if (hp <= 0)
+        {
+            die();
+        }
+        SetHealth(hp, Max_health);
+    }
     public void AddHealth(float health_to_add)
     {
         _healthPotion.Play();
