@@ -32,7 +32,7 @@ public class Rain : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Enemy>() != null)
-            collision.GetComponent<Enemy>().Take_Damage(30);
+            collision.GetComponent<Enemy>().Take_Damage(40);
         if (collision.tag != "Useless")
         {
             if(!_rainExplosion.isPlaying)

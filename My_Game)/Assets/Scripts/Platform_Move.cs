@@ -15,7 +15,7 @@ public class Platform_Move : MonoBehaviour
         nextPos = pos1.position;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (transform.position == pos1.position)
         {
@@ -25,7 +25,7 @@ public class Platform_Move : MonoBehaviour
         {
             nextPos = pos1.position;
         }
-        transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
 
     }
 }

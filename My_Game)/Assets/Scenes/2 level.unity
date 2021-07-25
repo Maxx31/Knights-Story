@@ -1740,6 +1740,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6681872343018225358, guid: b597d56d1673eb34e9b2df39f1c4569e,
+        type: 3}
+      propertyPath: _damage
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 6681872343229988468, guid: b597d56d1673eb34e9b2df39f1c4569e,
         type: 3}
       propertyPath: m_Name
@@ -1750,6 +1755,16 @@ PrefabInstance:
       propertyPath: point
       value: 
       objectReference: {fileID: 1969649925}
+    - target: {fileID: 6681872343229988471, guid: b597d56d1673eb34e9b2df39f1c4569e,
+        type: 3}
+      propertyPath: Armor
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681872343229988471, guid: b597d56d1673eb34e9b2df39f1c4569e,
+        type: 3}
+      propertyPath: Max_Health
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 6681872343273683771, guid: b597d56d1673eb34e9b2df39f1c4569e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4141,7 +4156,7 @@ PrefabInstance:
     - target: {fileID: 6681872343018225358, guid: b597d56d1673eb34e9b2df39f1c4569e,
         type: 3}
       propertyPath: _damage
-      value: 40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6681872343229988465, guid: b597d56d1673eb34e9b2df39f1c4569e,
         type: 3}
@@ -4162,6 +4177,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _stoppingDistanse
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681872343229988471, guid: b597d56d1673eb34e9b2df39f1c4569e,
+        type: 3}
+      propertyPath: Armor
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681872343229988471, guid: b597d56d1673eb34e9b2df39f1c4569e,
+        type: 3}
+      propertyPath: Max_Health
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6681872343229988471, guid: b597d56d1673eb34e9b2df39f1c4569e,
         type: 3}
@@ -5186,6 +5211,16 @@ PrefabInstance:
       propertyPath: _stoppingDistanse
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6110417726323990811, guid: 0e37724bd2d45f647b38006d50fc8c2c,
+        type: 3}
+      propertyPath: Armor
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110417726323990811, guid: 0e37724bd2d45f647b38006d50fc8c2c,
+        type: 3}
+      propertyPath: Max_Health
+      value: 115
+      objectReference: {fileID: 0}
     - target: {fileID: 6110417726482249948, guid: 0e37724bd2d45f647b38006d50fc8c2c,
         type: 3}
       propertyPath: m_RootOrder
@@ -5200,6 +5235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110417727284424794, guid: 0e37724bd2d45f647b38006d50fc8c2c,
+        type: 3}
+      propertyPath: Damage
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e37724bd2d45f647b38006d50fc8c2c, type: 3}
@@ -5989,6 +6029,16 @@ PrefabInstance:
       propertyPath: point
       value: 
       objectReference: {fileID: 960548414}
+    - target: {fileID: 6110417726323990811, guid: 0e37724bd2d45f647b38006d50fc8c2c,
+        type: 3}
+      propertyPath: Armor
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110417726323990811, guid: 0e37724bd2d45f647b38006d50fc8c2c,
+        type: 3}
+      propertyPath: Max_Health
+      value: 115
+      objectReference: {fileID: 0}
     - target: {fileID: 6110417726482249948, guid: 0e37724bd2d45f647b38006d50fc8c2c,
         type: 3}
       propertyPath: m_RootOrder
@@ -6043,6 +6093,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110417727284424794, guid: 0e37724bd2d45f647b38006d50fc8c2c,
+        type: 3}
+      propertyPath: Damage
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e37724bd2d45f647b38006d50fc8c2c, type: 3}
@@ -10303,8 +10358,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110417726323990811, guid: 0e37724bd2d45f647b38006d50fc8c2c,
         type: 3}
+      propertyPath: Armor
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110417726323990811, guid: 0e37724bd2d45f647b38006d50fc8c2c,
+        type: 3}
       propertyPath: Max_Health
-      value: 112
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 6110417726482249948, guid: 0e37724bd2d45f647b38006d50fc8c2c,
         type: 3}

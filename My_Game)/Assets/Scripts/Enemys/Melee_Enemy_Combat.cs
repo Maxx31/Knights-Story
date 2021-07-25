@@ -52,6 +52,7 @@ public class Melee_Enemy_Combat : MonoBehaviour
 
             foreach (Collider2D Hero in Hit_Enemies)
             {
+                if(Hero.GetComponent<Main_Hero>() != null)
                 Hero.GetComponent<Main_Hero>().Take_Damage(Damage);
             }
         }

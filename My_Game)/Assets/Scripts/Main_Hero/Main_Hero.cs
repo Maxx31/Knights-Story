@@ -138,7 +138,11 @@ public class Main_Hero : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            transform.parent = collision.gameObject.transform;
+            if (transform.parent != collision.gameObject.transform  && ( Mathf.Abs(transform.position.y - collision.gameObject.transform.position.y)) >= 2  )
+            {
+                transform.parent = collision.gameObject.transform;
+                rb.interpolation = RigidbodyInterpolation2D.None;
+            }
         }
     }
 
@@ -147,6 +151,7 @@ public class Main_Hero : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             transform.parent = null;
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         }
     }
 

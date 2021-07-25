@@ -9,13 +9,16 @@ public class Player_Combat : MonoBehaviour
     public ParticleSystem Super2;
     public Animator Anim;
 
+
     [SerializeField]
-    private Transform Attack_Point;
+    private GameObject _meleeAttack;
     [SerializeField]
-    private Transform Super_Attack_Point;
+    private float _damage = 25f;
 
     public float attack_range_base;
     public LayerMask Enemy_Layer;
+
+
 
     private Fireball fireball;
     private Rain rain;
@@ -23,7 +26,6 @@ public class Player_Combat : MonoBehaviour
     private float Fireball_rate = 0.5f;
     private float Rain_rate = 0.3f;
     private float SupperAttack_rate = 1.2f;
-    private float Damage = 25f;
     private Main_Hero m_h;
     private float _nextAttackTime = 0f;
     private float _nextFireballTime = 0f;
@@ -56,8 +58,10 @@ public class Player_Combat : MonoBehaviour
             if (CrossPlatformInputManager.GetButtonDown("attack"))
             {
                 _swordAttackSound.Play();
+                _meleeAttack.GetComponent<Melee_Attack>().Damage = _damage;
+                _meleeAttack.GetComponent<Melee_Attack>().Super = false;
                 Anim.SetTrigger("Attack");
-                StartCoroutine(Attack_Call(false));
+
                 _nextAttackTime = Time.time + 1f / _attackRate;
             }
 
@@ -88,8 +92,10 @@ public class Player_Combat : MonoBehaviour
             {
                 if (CrossPlatformInputManager.GetButtonDown("Skill_1"))
                 {
-                            _superSwordAttackSound.Play();
+                    _superSwordAttackSound.Play();
                     Anim.SetTrigger("Super_Attack");
+                    _meleeAttack.GetComponent<Melee_Attack>().Damage = _damage;
+                    _meleeAttack.GetComponent<Melee_Attack>().Super = true;
                     Invoke("SupperAttack", 0.3f);
                     _nextAttackTime = Time.time + 1f / _attackRate;
                     _nextSuperAtackTime = Time.time + 1f / SupperAttack_rate;
@@ -98,44 +104,6 @@ public class Player_Combat : MonoBehaviour
         }
     }
 
-    void Attack(bool Super = false)
-    {
-        float attack_range = attack_range_base;
-        float tDamage = Damage;
-        
-        if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[0] == true)
-        {
-            tDamage *= 1.2f;
-        }
-            if (Super == true)
-        {
-            tDamage *= 1.45f;
-            attack_range += 0.5f;
-        }
-        Collider2D[] Hit_Enemies;
-        if (Super == false)
-        {
-             Hit_Enemies = Physics2D.OverlapCircleAll(Attack_Point.position, attack_range, Enemy_Layer);
-        }
-        else
-        {
-            Hit_Enemies = Physics2D.OverlapCircleAll(Super_Attack_Point.position, attack_range, Enemy_Layer);
-        }
-          foreach (Collider2D enemy in Hit_Enemies)
-        {
-            if (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[2] == true)
-            {
-                    if (Random.Range(1, 16) < 4)
-                    {
-                    tDamage *= 2;
-                    }
-            }
-            if(enemy.GetComponent<Enemy>() != null)
-            {
-                enemy.GetComponent<Enemy>().Take_Damage(tDamage);
-            }
-        }
-    }
 
     private void Shoot_Fireball()
     {
@@ -211,31 +179,7 @@ public class Player_Combat : MonoBehaviour
         }
         Super.Emit(30);
         Super2.Emit(50);
-
-        StartCoroutine(Attack_Call(true));
     } 
-    IEnumerator Attack_Call(bool isSuper =false)
-    {
-        if (isSuper == false) 
-       yield return new WaitForSeconds(0.2f);
-
-        if (isSuper)
-        {
-            Attack(true);
-        }
-        else
-        {
-            Attack(false);
-        }
-        yield return null;
-    }
-    private void OnDrawGizmosSelected()
-    {
-        if(Attack_Point == null)
-           return;
-        
-        Gizmos.DrawWireSphere(Attack_Point.position, attack_range_base);
-    }
 
   private void AudioSet()
     {
