@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Begin_Menu: MonoBehaviour
@@ -19,11 +20,13 @@ public class Begin_Menu: MonoBehaviour
     [SerializeField]
     private GameObject _volumeText;    
     
-    [SerializeField]
     private AudioSource _backMusic;
     private void Start()
     {
+        _backMusic = GameObject.Find("Singleton_Skill_Controller").GetComponent<AudioSource>();
         click = gameObject.GetComponent<AudioSource>();
+
+        _slider.GetComponent<Slider>().value = _backMusic.volume;
     }
     public void LoatTo(int level)
     {
@@ -67,6 +70,7 @@ public class Begin_Menu: MonoBehaviour
 
     public void SetVolume(float volume)
     {
+        
         if(_backMusic != null)
         _backMusic.volume = volume;
     }

@@ -38,6 +38,7 @@ public class Melee_Attack : MonoBehaviour
     IEnumerator Attack_Call(Collider2D enemy, float damage)
     {
        yield return new WaitForSeconds(0.2f);
+        if(enemy != null)
         enemy.GetComponent<Enemy>().Take_Damage(damage);
     }
 }

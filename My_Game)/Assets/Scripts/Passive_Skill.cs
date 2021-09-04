@@ -20,12 +20,12 @@ public class Passive_Skill : MonoBehaviour
     private void Start()
     {
         _manager = manager.GetComponent<Passive_Skills_Manager>();
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < Singleton_Skills_Manager.use.Passive_skills_Warrior.Length; i++)
         {
             if (Singleton_Skills_Manager.use.Passive_skills_Warrior[i] == ccount) is_taken = true;
         }
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < Singleton_Skills_Manager.use.Active_PassiveSkills.Length; i++)
         {
             if (Singleton_Skills_Manager.use.Active_PassiveSkills[i] == ccount) is_taken = true;
         }

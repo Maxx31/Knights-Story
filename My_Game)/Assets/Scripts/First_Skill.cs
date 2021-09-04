@@ -37,12 +37,12 @@ public class First_Skill : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < Singleton_Skills_Manager.use.Passive_skills_Warrior.Length; i++)
         {
             if (Singleton_Skills_Manager.use.Passive_skills_Warrior[i] == 0) is_taken = true;
         }
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < Singleton_Skills_Manager.use.Active_PassiveSkills.Length; i++)
         {
             if (Singleton_Skills_Manager.use.Active_PassiveSkills[i] == 0) is_taken = true;
         }
