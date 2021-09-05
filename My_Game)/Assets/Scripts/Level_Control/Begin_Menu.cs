@@ -19,14 +19,15 @@ public class Begin_Menu: MonoBehaviour
     private GameObject _backButton;
     [SerializeField]
     private GameObject _volumeText;    
-    
+    [SerializeField]
     private AudioSource _backMusic;
     private void Start()
     {
-        _backMusic = GameObject.Find("Singleton_Skill_Controller").GetComponent<AudioSource>();
         click = gameObject.GetComponent<AudioSource>();
+        _backMusic = GameObject.Find("Singleton_Skill_Controller").GetComponent<AudioSource>();
 
-        _slider.GetComponent<Slider>().value = _backMusic.volume;
+        _slider.GetComponent<Slider>().value = Singleton_Skills_Manager.use.AudioVolume;
+        _backMusic.volume = Singleton_Skills_Manager.use.AudioVolume;
     }
     public void LoatTo(int level)
     {
@@ -70,8 +71,12 @@ public class Begin_Menu: MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        
-        if(_backMusic != null)
-        _backMusic.volume = volume;
+
+        if (_backMusic != null)
+        {
+            _backMusic.volume = volume;
+            Singleton_Skills_Manager.use.AudioVolume = volume;
+            PlayerPrefs.SetFloat(Singleton_Skills_Manager.use.Str_AudioVolume, volume);
+        }
     }
 }

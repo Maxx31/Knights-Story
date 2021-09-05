@@ -1527,7 +1527,7 @@ MonoBehaviour:
   _slider: {fileID: 696442907}
   _backButton: {fileID: 537142914}
   _volumeText: {fileID: 579707339}
-  _backMusic: {fileID: 1633376311}
+  _backMusic: {fileID: 0}
 --- !u!82 &882630247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1876,12 +1876,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612437292}
   m_CullTransparentMesh: 1
---- !u!82 &1633376311 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6026189764865985083, guid: 3dc4268e94c994341b8386039ee33830,
-    type: 3}
-  m_PrefabInstance: {fileID: 6026189764124828196}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2016823611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,7 +2140,7 @@ PrefabInstance:
     - target: {fileID: 6026189764865985083, guid: 3dc4268e94c994341b8386039ee33830,
         type: 3}
       propertyPath: m_Volume
-      value: 0.204
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dc4268e94c994341b8386039ee33830, type: 3}

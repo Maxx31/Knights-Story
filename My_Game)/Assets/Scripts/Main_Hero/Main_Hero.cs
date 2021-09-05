@@ -6,6 +6,10 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.SceneManagement;
 public class Main_Hero : MonoBehaviour
 {
+
+    public delegate void ScreenFade(bool Red = true);
+    public event ScreenFade HitAction;
+
     public float Move_Speed;
     public float JumpPower;
     public bool Facing_Right;
@@ -199,6 +203,7 @@ public class Main_Hero : MonoBehaviour
             damage -= ( (armor_Rate + Armor_Boost) * damage) / 100; //Armor influence
             _damageTakeSound.Play();
             hp -= damage;
+            HitAction?.Invoke(true); //Screen fade
         }
         else
         {
@@ -236,6 +241,7 @@ public class Main_Hero : MonoBehaviour
     {
         _healthPotion.Play();
         hp = Mathf.Min((health_to_add + hp), Max_health);
+        HitAction?.Invoke(false); //Screen fade
         SetHealth(hp, Max_health);
     }
     public void SetHealth(float health, float maxHealth)

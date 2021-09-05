@@ -30,6 +30,9 @@ public class Singleton_Skills_Manager : MonoBehaviour
     public bool[] Active_skills_Warrior = new bool[3];
     public string[] Str_Active_skills_Warrior = new string[3];
 
+    public float AudioVolume;
+    public string Str_AudioVolume;
+
     private static Singleton_Skills_Manager _use;
     public static Singleton_Skills_Manager use
     {
@@ -41,51 +44,61 @@ public class Singleton_Skills_Manager : MonoBehaviour
     }
     private void Awake()
     {
-        if(PlayerPrefs.GetInt("FirstTime") == 0)
+        if(PlayerPrefs.GetInt("FirstTime") == 0) //First Time open
         {
             PlayerPrefs.SetInt("FirstTime", 1);
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < Str_Passive_skills_Warrior.Length; i++)
             {
                 PlayerPrefs.SetInt(Str_Passive_skills_Warrior[i] , -1);
             }
-            for (int i = 0; i < 3; i++)
+
+            for (int i = 0; i < Str_Active_PassiveSkills.Length; i++)
             {
                PlayerPrefs.SetInt(Str_Active_PassiveSkills[i] , -1);
             }
-            for (int i = 0; i < 3; i++)
+
+            for (int i = 0; i < Str_Active_skills_Warrior.Length; i++)
             {
                PlayerPrefs.SetInt(Str_Active_skills_Warrior[i] , boolToInt(false));
             }
-            for (int i = 0; i < 10; i++)
+
+            PlayerPrefs.SetFloat(Str_AudioVolume, 100f);
+
+            for (int i = 0; i < Passive_skills_Warrior.Length; i++)
             {
                 Passive_skills_Warrior[i] = PlayerPrefs.GetInt(Str_Passive_skills_Warrior[i]);
             }
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < Active_PassiveSkills.Length; i++)
             {
                 Active_PassiveSkills[i] = PlayerPrefs.GetInt(Str_Active_PassiveSkills[i]);
             }
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < Active_skills_Warrior.Length; i++)
             {
                 Active_skills_Warrior[i] = intToBool(PlayerPrefs.GetInt(Str_Active_skills_Warrior[i]));
             }
+
+            AudioVolume = PlayerPrefs.GetFloat(Str_AudioVolume);
         }
 
 
 
-        if (_use == null) //Singleton
+        if (_use == null) 
         {
-            for (int i = 0; i< 10; i++)
+            for (int i = 0; i < Passive_skills_Warrior.Length; i++)
             {
                 Passive_skills_Warrior[i] = PlayerPrefs.GetInt(Str_Passive_skills_Warrior[i]);
             }
-            for(int i = 0;i < 3; i++)
+            for(int i = 0;i < Active_PassiveSkills.Length; i++)
             {
                 Active_PassiveSkills[i] = PlayerPrefs.GetInt(Str_Active_PassiveSkills[i]);
             }
-            for(int i = 0;  i< 3; i++)
+            for(int i = 0;  i< Active_skills_Warrior.Length; i++)
             {
                 Active_skills_Warrior[i] = intToBool( PlayerPrefs.GetInt( Str_Active_skills_Warrior[i]));
             }
+
+            AudioVolume = PlayerPrefs.GetFloat(Str_AudioVolume);
+
             _use = this;
             DontDestroyOnLoad(gameObject);
         }

@@ -41,27 +41,32 @@ public class Main_Menu : MonoBehaviour
     public void Reset()
     {
         click.Play();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < Singleton_Skills_Manager.use.Str_Passive_skills_Warrior.Length; i++)
         {
             PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Passive_skills_Warrior[i], -1);
         }
-        for (int i = 0; i < 3; i++)
+
+        for (int i = 0; i < Singleton_Skills_Manager.use.Str_Active_PassiveSkills.Length; i++)
         {
             PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Active_PassiveSkills[i], -1);
         }
-        for (int i = 0; i < 3; i++)
+
+        for (int i = 0; i < Singleton_Skills_Manager.use.Str_Active_skills_Warrior.Length; i++)
         {
             PlayerPrefs.SetInt(Singleton_Skills_Manager.use.Str_Active_skills_Warrior[i], 0);
         }
-        for (int i = 0; i < 10; i++)
+
+        for (int i = 0; i < Singleton_Skills_Manager.use.Passive_skills_Warrior.Length; i++)
         {
             Singleton_Skills_Manager.use.Passive_skills_Warrior[i] = PlayerPrefs.GetInt(Singleton_Skills_Manager.use.Str_Passive_skills_Warrior[i]);
         }
-        for (int i = 0; i < 3; i++)
+
+        for (int i = 0; i < Singleton_Skills_Manager.use.Active_PassiveSkills.Length; i++)
         {
             Singleton_Skills_Manager.use.Active_PassiveSkills[i] = PlayerPrefs.GetInt(Singleton_Skills_Manager.use.Str_Active_PassiveSkills[i]);
         }
-        for (int i = 0; i < 3; i++)
+
+        for (int i = 0; i < Singleton_Skills_Manager.use.Active_skills_Warrior.Length; i++)
         {
             Singleton_Skills_Manager.use.Active_skills_Warrior[i] = intToBool(PlayerPrefs.GetInt(Singleton_Skills_Manager.use.Str_Active_skills_Warrior[i]));
         }
