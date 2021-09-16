@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     private Health_Bar healthbar;
 
 
-    private enum monsterType { Goblin, Magic };
+    private enum monsterType { Goblin, Magic , Boss };
     [SerializeField]
     private monsterType _monsterType;
 
@@ -39,6 +39,12 @@ public class Enemy : MonoBehaviour
     }
     public void Take_Damage(float damage)
     {
+        if(_monsterType == monsterType.Boss)
+        {
+            gameObject.GetComponent<Boss>().TakeDamage(damage);
+            return;
+        }
+
         if (Dead == true) return;
         int armor_Reduce = 0;
         if ( Skills_Manager.use.Is_Enable_Passive_skills_Warrior[5] == true)

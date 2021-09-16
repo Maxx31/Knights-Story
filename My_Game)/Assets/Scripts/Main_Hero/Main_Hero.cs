@@ -64,7 +64,8 @@ public class Main_Hero : MonoBehaviour
             double_Jump = true;
 
         }
-        if (CrossPlatformInputManager.GetButtonDown("Jump") && (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true || Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true) && rb.velocity.y != 0 && double_Jump == true)
+    //    if (CrossPlatformInputManager.GetButtonDown("Jump") && (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true || Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true) && rb.velocity.y != 0 && double_Jump == true)
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && rb.velocity.y != 0 && double_Jump == true)
         {
             _jumpingSound.Play();
             if (double_Jump == false)
