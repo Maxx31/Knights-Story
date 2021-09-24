@@ -42,7 +42,7 @@ public class Fireball : MonoBehaviour
             collision.GetComponent<Enemy>().Take_Damage(50);
         }
 
-        if (collision.tag != "Useless" && collision.tag != "Player") {
+        if (collision.tag != "Useless" && collision.tag != "Player" ) {
             if(!_fireballExplosionSound.isPlaying)
             _fireballExplosionSound.Play();
             anim.SetTrigger("Explose");

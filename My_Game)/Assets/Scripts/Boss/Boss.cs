@@ -4,32 +4,53 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Boss : MonoBehaviour
 {
+	[HideInInspector]
+	public bool Obstacle;
+
+	public delegate void EndLevel();
+	public event EndLevel EndLevelAction; //This event delete wall after boss die
 
 	[SerializeField, Tooltip("Low hp color")]
 	private Color _low;
 	[SerializeField, Tooltip("High hp color")]
 	private Color _high;
 	[SerializeField]
-	private Slider _slider;
-	[SerializeField]
 	private float _maxHealth;
 
 
 	private float currentHealth;
-
+	private Slider slider;
 	private Transform player;
 
 	private bool isFlipped = false;
+
+	private Animator anim;
 	private void Start()
 	{
-		_slider = GameObject.Find("Boss Health bar").GetComponent<Slider>();
+		Obstacle = false;
+		anim = GetComponent<Animator>();
+		slider = GameObject.Find("Boss Health bar").GetComponent<Slider>();
+		slider.transform.localScale = new Vector3(2f, 4, 2);
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		currentHealth = _maxHealth;
-		_slider.gameObject.SetActive(true);
+		SetHealth(currentHealth, _maxHealth);
+	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+		if (collision.gameObject.tag == "BossPlatform")
+		{
+			Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+		}
 	}
 
-
-	public void LookAtPlayer()
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Main_Hero>() != null)
+        {
+			collision.gameObject.GetComponent<Main_Hero>().Mace_Damage(0.7f);
+		}
+    }
+    public void LookAtPlayer()
 	{
 		Vector3 flipped = transform.localScale;
 		flipped.z *= -1f;
@@ -50,19 +71,31 @@ public class Boss : MonoBehaviour
 
 	private void SetHealth(float health, float maxHealth)
 	{
-
-		_slider.gameObject.SetActive(health <= maxHealth);
-		_slider.maxValue = maxHealth;
-		_slider.value = health;
-		_slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(_low, _high, _slider.normalizedValue);
-
+		slider.gameObject.SetActive(health <= maxHealth);
+		slider.maxValue = maxHealth;
+		slider.value = health;
+		slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(_low, _high, slider.normalizedValue);
 	}
 
 	public void TakeDamage(float damage)
     {
-		currentHealth -= damage;
+		if(currentHealth - damage <= _maxHealth / 1.8)
+        {
+			anim.SetBool("Rage", true);
+        }
 
-		SetHealth(currentHealth, _maxHealth);
+		if(currentHealth - damage <= 0)
+        {
+			EndLevelAction?.Invoke();
+			anim.SetTrigger("Die");
+        }
+
+		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Rage"))
+		{
+			currentHealth -= damage;
+
+			SetHealth(currentHealth, _maxHealth);
+		}
 
     }
 }

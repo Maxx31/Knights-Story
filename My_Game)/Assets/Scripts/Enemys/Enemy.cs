@@ -32,10 +32,14 @@ public class Enemy : MonoBehaviour
     private AudioClip[] _audio;
     private void Start()
     {
-        AudioLoad();
-        rb = GetComponent<Rigidbody2D>();
-        current_Healh = Max_Health;
-        healthbar.SetHealth(current_Healh, Max_Health);
+        if (_monsterType != monsterType.Boss)
+        {
+            AudioLoad();
+
+            rb = GetComponent<Rigidbody2D>();
+            current_Healh = Max_Health;
+            healthbar.SetHealth(current_Healh, Max_Health);
+        }
     }
     public void Take_Damage(float damage)
     {

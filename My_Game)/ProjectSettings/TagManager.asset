@@ -9,6 +9,7 @@ TagManager:
   - Useless
   - Platform
   - Mace
+  - BossPlatform
   layers:
   - Default
   - TransparentFX
