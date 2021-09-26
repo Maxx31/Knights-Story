@@ -13,10 +13,13 @@ public class Boss_Starter : MonoBehaviour
     [SerializeField]
     private GameObject _beginWall;
 
+    private bool _spawned = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Main_Hero>() != null)
+        if (collision.GetComponent<Main_Hero>() != null && _spawned == false)
         {
+            _spawned = true;
             _beginWall.GetComponent<SpriteRenderer>().size = new Vector2(4.961783f,140);
             _beginWall.GetComponent<BoxCollider2D>().size = new Vector2(4.961783f, 140);
             Instantiate(_boss);

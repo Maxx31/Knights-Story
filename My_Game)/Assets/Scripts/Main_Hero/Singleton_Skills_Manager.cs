@@ -86,15 +86,15 @@ public class Singleton_Skills_Manager : MonoBehaviour
         {
             for (int i = 0; i < Passive_skills_Warrior.Length; i++)
             {
-                Passive_skills_Warrior[i] = PlayerPrefs.GetInt(Str_Passive_skills_Warrior[i]);
+                Passive_skills_Warrior[i] = i; //PlayerPrefs.GetInt(Str_Passive_skills_Warrior[i]);
             }
             for(int i = 0;i < Active_PassiveSkills.Length; i++)
             {
-                Active_PassiveSkills[i] = PlayerPrefs.GetInt(Str_Active_PassiveSkills[i]);
+                Active_PassiveSkills[i] = -1; //PlayerPrefs.GetInt(Str_Active_PassiveSkills[i]);
             }
-            for(int i = 0;  i< Active_skills_Warrior.Length; i++)
+            for(int i = 0;  i< Active_skills_Warrior.Length; i++) //ÇÀËÀÒÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÀÒÜ
             {
-                Active_skills_Warrior[i] = intToBool( PlayerPrefs.GetInt( Str_Active_skills_Warrior[i]));
+                Active_skills_Warrior[i] = true; //intToBool( PlayerPrefs.GetInt( Str_Active_skills_Warrior[i]));
             }
 
             AudioVolume = PlayerPrefs.GetFloat(Str_AudioVolume);

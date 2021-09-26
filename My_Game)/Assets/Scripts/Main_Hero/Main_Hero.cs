@@ -62,26 +62,20 @@ public class Main_Hero : MonoBehaviour
         if (rb.velocity.y == 0)
         {
             double_Jump = true;
-
         }
         if (CrossPlatformInputManager.GetButtonDown("Jump") && (Skills_Manager.use.Is_Enable_Passive_skills_Warrior[7] == true || Skills_Manager.use.Is_Enable_Passive_skills_Warrior[8] == true) && rb.velocity.y != 0 && double_Jump == true)
         {
             _jumpingSound.Play();
-            if (double_Jump == false)
-            {
-                rb.AddForce(Vector2.up * 560f);
-            }
-            else
-            {
-                rb.AddForce(Vector2.up * (JumpPower / 1.5f) ); //For jump from sand
-            }
+           
+            rb.velocity = Vector2.up * (JumpPower);
             double_Jump = false;
+
         }
         if (CrossPlatformInputManager.GetButtonDown("Jump") && rb.velocity.y == 0)
         {
             _jumpingSound.Play();
-            rb.AddForce(Vector2.up * JumpPower);
-
+            rb.velocity = Vector2.up * JumpPower; 
+       
         }
 
         if(Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)

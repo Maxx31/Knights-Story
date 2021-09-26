@@ -21,7 +21,7 @@ public class Boss : MonoBehaviour
 	private float currentHealth;
 	private Slider slider;
 	private Transform player;
-
+	private bool isDead = false;
 	private bool isFlipped = false;
 
 	private Animator anim;
@@ -79,23 +79,26 @@ public class Boss : MonoBehaviour
 
 	public void TakeDamage(float damage)
     {
-		if(currentHealth - damage <= _maxHealth / 1.8)
-        {
-			anim.SetBool("Rage", true);
-        }
-
-		if(currentHealth - damage <= 0)
-        {
-			EndLevelAction?.Invoke();
-			anim.SetTrigger("Die");
-        }
-
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Rage"))
+		if (!isDead)
 		{
-			currentHealth -= damage;
+			if (currentHealth - damage <= _maxHealth / 1.8)
+			{
+				anim.SetBool("Rage", true);
+			}
 
-			SetHealth(currentHealth, _maxHealth);
+			if (currentHealth - damage <= 0)
+			{
+				EndLevelAction?.Invoke();
+				isDead = true;
+				anim.SetTrigger("Die");
+			}
+
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Rage"))
+			{
+				currentHealth -= damage;
+
+				SetHealth(currentHealth, _maxHealth);
+			}
 		}
-
     }
 }
