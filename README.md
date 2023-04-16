@@ -1,11 +1,11 @@
 # Knights Story
-Это мой учебный проект, сделанный для эксперемнтирования и практики, выполненны в стиле 2д платформера на андроид. Всё в игре кроме графики(взята с Asset Store) и звуков делал сам. 
-Ссылка на .exe file: https://drive.google.com/file/d/1mvMavb0_hc74qnGb6-300auE_pJijAhk/view?usp=sharing
-## Игровой процесс:
-Игровой процесс состоит из трёх разных уровней, состоящих из вражеских персонажей, ловушек и босса в конце. По пути игрок будет открывать активные умения, и пассивные, которые можно будет выбирать. 
-## Разработка: 
-В коде игры реализованно три паттерна ( Singleton, Observer, State). В процессе реализована система частиц для разных эффектов, и немного шейдер графов. В самом коде много лишнего, и плохого кода, который стоило бы поменять, но поскольку делал для практики, допускал такие ошибки.
-## Скрины из игры:
+This is my educational project, made in the style of a 2D platformer on android. Everything in the game except for the graphics (taken from the Asset Store) and the sound was done by myself.
+Reference to .exe file: https://drive.google.com/file/d/1mvMavb0_hc74qnGb6-300auE_pJijAhk/view?usp=sharing
+## Game process:
+The gameplay consists of three different levels consisting of enemy characters, traps and a boss at the end. Along the way, the player will unlock both active and passive skills that can be selected.
+## Development: 
+There are three patterns implemented in the game code (Singleton, Observer, State). In the process, a particle system for various effects is implemented, and a bit of a  shader graph.
+## Screenshots:
 ![image](https://user-images.githubusercontent.com/56173723/135504708-b80df7d8-f30d-48b1-9011-542521959853.png)
 ![image](https://user-images.githubusercontent.com/56173723/135504751-e1d5b002-49e6-4f39-8c43-24825f567d6a.png)
 ![image](https://user-images.githubusercontent.com/56173723/135504762-4f91c313-6cda-4d8b-ae3d-b8296eab4de0.png)
